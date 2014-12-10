@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from django.db import models
 
 
@@ -17,7 +19,8 @@ class Student(models.Model):
     )
     package = models.CharField(max_length=2, choices=PACKAGE_VIEW,
                                default=STANDARD)
-    course = models.ForeignKey('courses.Course')
+    course = models.ManyToManyField('courses.Course')
+    dossier = models.OneToOneField('dossier.Dossier', null=True, blank=True)
 
     def __unicode__(self):
         return self.surname + ' ' + self.name

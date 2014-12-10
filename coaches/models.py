@@ -15,9 +15,9 @@ class Coach(models.Model):
         (lecturer, 'Lecturer'),
         (assistant, 'Assistant'),
     )
-    position = models.CharField(max_length=2, choices=position_view,
-                                default=lecturer)
-    course = models.ForeignKey('courses.Course', null=True, blank=True)
+    role = models.CharField(max_length=2, choices=position_view,
+                            default=lecturer)
+    dossier = models.OneToOneField('dossier.Dossier', null=True, blank=True)
 
     def __unicode__(self):
         return self.surname + ' ' + self.name

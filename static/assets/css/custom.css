@@ -215,7 +215,7 @@ font-size: 30px;
 font-weight: 700;
 }
 .active-menu {
-    background-color:#C90000!important;
+    background-color:#E6B036!important;
 }
 
 .arrow {
@@ -251,6 +251,7 @@ font-weight: 700;
 }
 .sidebar-collapse .nav > li > a {
 	color:#fff;
+
 	background:#202020;
 	text-shadow:none;
 	

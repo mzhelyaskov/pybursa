@@ -1,108 +1,49 @@
-{% load static %}<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>PyBursa Course</title>
-        <link href="{% static "assets/css/bootstrap.css" %}" rel="stylesheet" />
-        <link href="{% static "assets/css/font-awesome.css" %}" rel="stylesheet" />
-        <link href="{% static "assets/js/morris/morris-0.4.3.min.css" %}" rel="stylesheet" />
-        <link href="{% static "assets/css/custom.css" %}" rel="stylesheet" />
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    </head>
-    <body>
-        <div id="wrapper">
-            <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/">PyBursa</a>
-                </div>
+{% extends "base.html" %}
 
-            </nav>
+{% block nav-bar %}
+    {% include "navbar-side-coaches.html" %}
+{% endblock nav-bar %}
 
-            <!-- /. NAV TOP  -->
-            <nav class="navbar-default navbar-side" role="navigation">
-                <div class="sidebar-collapse">
-                    <ul class="nav" id="main-menu">
-                        <li class="text-center">
-                            <img src="{% static "assets/img/find_user.png" %}" class="user-image img-responsive"/>
-                        </li>
-                        <li>
-                            <a href="/students/"><i class="fa fa-users fa-3x"></i> Студенты</a>
-                        </li>
-                        <li>
-                            <a class="active-menu" href="/coaches/"><i class="fa fa-user fa-3x"></i> Преподаватели</a>
-                        </li>
-                        <li>
-                            <a href="/courses/"><i class="fa fa-keyboard-o fa-3x"></i></i> Курсы</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-
-            <!-- /. NAV SIDE  -->
-            <div id="page-wrapper" >
-                <div id="page-inner">
-                    <div class="row">
-                        <div class="col-md-12">
-                         <h2>ПРЕПОДАВАТЕЛИ</h2>
-                            <h5>All coaches list </h5>
-                        </div>
-                    </div>
-                    <hr/>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="panel-body">
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>ФИО</th>
-                                                <th>ТЕЛЕФОН</th>
-                                                <th>ПОЗИЦИЯ</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {% for coach in coaches %}
-                                            <tr class="odd gradeX">
-                                                <td>{{ forloop.counter }}</td>
-                                                <td>
-                                                    <a href="/coaches/{{ coach.id }}">
-                                                        {{ coach.surname }} {{ coach.name }}
-                                                    </a>
-                                                </td>
-                                                <td>{{ coach.phone }}</td>
-                                                <td>{{ coach.get_position_display }}</td>
-                                            </tr>
-                                            {% endfor %}
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+{% block content %}
+<div id="page-inner">
+    <div class="row">
+        <div class="col-md-12">
+         <h2>ПРЕПОДАВАТЕЛИ</h2>
+            <h5>All coaches list </h5>
+        </div>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>ФИО</th>
+                                <th>ТЕЛЕФОН</th>
+                                <th>ПОЗИЦИЯ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for coach in coaches %}
+                            <tr class="odd gradeX">
+                                <td>{{ forloop.counter }}</td>
+                                <td>
+                                    <a href="/coaches/{{ coach.id }}">
+                                        {{ coach.surname }} {{ coach.name }}
+                                    </a>
+                                </td>
+                                <td>{{ coach.phone }}</td>
+                                <td>{{ coach.get_position_display }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
-
-
-        <script src="{% static "assets/js/bootstrap.min.js" %}"></script>
-        <script src="{% static "assets/js/jquery.metisMenu.js" %}"></script>
-        <script src="{% static "assets/js/dataTables/jquery.dataTables.js" %}"></script>
-        <script src="{% static "assets/js/dataTables/dataTables.bootstrap.js" %}"></script>
-            <script>
-                $(document).ready(function () {
-                    $('#dataTables-example').dataTable();
-                });
-        </script>
-        <script src="{% static "assets/js/custom.css" %}"></script>
-
-
-    </body>
-</html>
+    </div>
+</div>
+{% endblock content %}

@@ -18,15 +18,16 @@ class Course(models.Model):
                                        default=python)
     description = models.CharField(max_length=255)
     teacher = models.ForeignKey('coaches.Coach',
-                                limit_choices_to={'position': 'LR'},
+                                limit_choices_to={'role': 'LR'},
                                 related_name='teacher_id')
     assistant = models.ForeignKey('coaches.Coach',
-                                  limit_choices_to={'position': 'AT'},
+                                  limit_choices_to={'role': 'AT'},
                                   related_name='assistant_id',
                                   null=True,
                                   blank=True)
     start_date = models.DateField()
     end_date = models.DateField()
+    venue = models.ForeignKey('address.Address', null=True, blank=True)
 
     def __unicode__(self):
         return self.course_name + ' (' + self.programming_len + ')'
