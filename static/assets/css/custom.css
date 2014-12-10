@@ -18,7 +18,7 @@ body {
 
  #wrapper {
     width: 100%;
-    background:#202020;
+    background:#F2F2F2;
 }
 
 #page-wrapper {
@@ -42,7 +42,7 @@ body {
     border:1px solid #f3f3f3;
 }
 h2 {
-    color: #f00;
+    color: #2A6787;
 }
 h4 {
     padding-top:10px;
@@ -104,7 +104,7 @@ background-color: #A95DF0;
 color: #fff;
 }
   .bg-color-red {
-background-color: #DB0630;
+background-color: #D6AC43;
 color: #fff;
 }
   .bg-color-brown {
@@ -157,7 +157,7 @@ color:#fff;
     border-top: 0px solid #fff;
 }
      .back-footer-red {
-    background-color: #AF0000;
+    background-color: #D6AC43;
     border-top: 0px solid #fff;
 }
      .color-bottom-txt {
@@ -197,17 +197,17 @@ color: #8d8888;
 
 
 .user-image {
-    margin: 25px auto;
+
 -webkit-border-radius: 10px;
 -moz-border-radius: 10px;
 border-radius: 10px;
-max-height:170px;
-max-width:170px;
+max-height:260px;
+max-width:260px;
 }
 
 .navbar-cls-top .navbar-brand {
 	color: #fff;
-background: #C90000;
+background: #D6AC43;
 width: 260px;
 text-align: center;
 height: 60px;
@@ -252,7 +252,7 @@ font-weight: 700;
 .sidebar-collapse .nav > li > a {
 	color:#fff;
 
-	background:#202020;
+	background:#2A6786;
 	text-shadow:none;
 	
 }
@@ -265,7 +265,8 @@ font-weight: 700;
 .sidebar-collapse .nav > li > a:hover,
 .sidebar-collapse .nav > li > a:focus {
 	
-	background:#0A0A0A;
+	/*background:#0A0A0A;*/
+    background:#E6B036;
 	outline:0;
 }
 
@@ -277,7 +278,7 @@ font-weight: 700;
 	left:20px;
 	width:15px;
 	height:1px;
-	background:#ff0000;
+	background:#D6AC43;
 	top:20px;
 }
 .nav-second-level > li > a:after,
@@ -288,7 +289,7 @@ font-weight: 700;
 	left:20px;
 	width:1px;
 	height:100%;
-	background:#ff0000;
+	background:#D6AC43;
 	top:0px;
 	z-index:10;
 }
@@ -302,17 +303,17 @@ font-weight: 700;
 }
 .navbar-side {
 	border:none;
-	background-color: #202020;
+	background-color: #FFF;
 	
 }
 .navbar-cls-top {
-	background:#4D4D4D;
+	background:#2A6786;
 	border-bottom:none;
 	
 }
 .navbar-cls-top .navbar-brand:hover {
 
-background: #C90000;
+background: #D6AC43;
 color:#fff;
 
 }
@@ -322,10 +323,10 @@ border:0px solid black;
      
 }
 .navbar-header {
-    background: #A70303;
+    background: #D6AC43;
 }
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-background-color: #B40101;
+background-color: #D6AC43;
 }
 .navbar-default .navbar-toggle {
 border-color: #fff;
@@ -359,7 +360,7 @@ line-height: 1.428571429;
  @media(min-width:768px) {
      #page-wrapper{
                margin: 0 0 0 260px;
-        padding: 15px 30px;
+        padding: 1px 11px;
         min-height: 1200px;
 		
     }
