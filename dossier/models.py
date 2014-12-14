@@ -25,3 +25,6 @@ class Dossier(models.Model):
     favorite_color = models.CharField(max_length=6,
                                       choices=favorite_color_view,
                                       blank=True)
+
+    def __unicode__(self):
+        return u"Досье №%s" % self.id

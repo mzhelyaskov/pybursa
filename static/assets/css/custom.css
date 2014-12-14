@@ -251,21 +251,20 @@ font-weight: 700;
 }
 .sidebar-collapse .nav > li > a {
 	color:#fff;
-
 	background:#2A6786;
 	text-shadow:none;
+    border-radius: 15px;
 	
 }
 .sidebar-collapse > .nav > li > a {
 	padding:15px 10px;
 }
 .sidebar-collapse > .nav > li {
-	border-bottom: 1px solid rgba(107, 108, 109, 0.19);
+	border-bottom: 4px solid rgba(243, 243, 243, 0.19);
+    background:#F3F3F3;
 }
 .sidebar-collapse .nav > li > a:hover,
 .sidebar-collapse .nav > li > a:focus {
-	
-	/*background:#0A0A0A;*/
     background:#E6B036;
 	outline:0;
 }

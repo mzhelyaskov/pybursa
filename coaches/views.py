@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from coaches.models import Coach
 
 
@@ -8,7 +8,7 @@ def coaches_list(request):
     return render(request, 'coaches/coaches_list.html', context)
 
 
-def coach_item(request, student_id):
-    coach = Coach.objects.get(id=student_id)
+def coach_item(request, coach_id):
+    coach = get_object_or_404(Coach, id=coach_id)
     context = {'coach': coach}
     return render(request, 'coaches/coach_item.html', context)
