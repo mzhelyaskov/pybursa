@@ -31,3 +31,5 @@ class StudentAdmin(admin.ModelAdmin):
     formfield_overrides = {
         models.DateField: {'widget': SelectDateWidget}
     }
+    list_max_show_all = 100
+    list_per_page = 3
