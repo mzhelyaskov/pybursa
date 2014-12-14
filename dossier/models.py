@@ -20,9 +20,11 @@ class Dossier(models.Model):
         (green, u'зеленый'),
         (indigo, u'синий'),
     )
-    address = models.ForeignKey('address.Address')
-    unloved_courses = models.ManyToManyField('courses.Course')
-    favorite_color = models.CharField(max_length=6,
+    address = models.ForeignKey('address.Address',
+                                verbose_name=u"Адрес:")
+    unloved_courses = models.ManyToManyField('courses.Course',
+                                             verbose_name=u"Нелюбимые курсы:")
+    favorite_color = models.CharField(u"Любимый цвет:", max_length=6,
                                       choices=favorite_color_view,
                                       blank=True)
 
