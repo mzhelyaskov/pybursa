@@ -4,12 +4,12 @@ from django.db import models
 
 
 class Address(models.Model):
-    index = models.PositiveIntegerField()
-    country = models.CharField(max_length=60)
-    district = models.CharField(max_length=60, blank=True)
-    region = models.CharField(max_length=60, blank=True)
-    street = models.CharField(max_length=60)
-    house = models.CharField(max_length=10)
+    index = models.PositiveIntegerField(u'Индекс:')
+    country = models.CharField(u'Страна:', max_length=60)
+    district = models.CharField(u'Область:', max_length=60, blank=True)
+    region = models.CharField(u'Район:', max_length=60, blank=True)
+    street = models.CharField(u'Улица:', max_length=60)
+    house = models.CharField(u'Дом:', max_length=10)
 
     def __unicode__(self):
         address_pref = u'%s, %s' % (self.index, self.country)
