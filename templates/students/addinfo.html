@@ -1,0 +1,64 @@
+<div class="row placeholders">
+    <div class="col-xs-6 col-sm-12 placeholder ">
+        <div class="tabbable">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab1" data-toggle="tab">Посещаемые курсы</a></li>
+                <li><a href="#tab2" data-toggle="tab">Досье</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab1">
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead>
+                            <tr id="table-tab">
+                                <th>#</th>
+                                <th>Курс</th>
+                                <th>Дата начала</th>
+                                <th>Дата окончания</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for course in student.courses.all %}
+                            <tr class="odd gradeX">
+                                <td>{{ forloop.counter }}</td>
+                                <td>
+                                    <a href="{% url 'courses:course-detail' course.id %}">
+                                        {{ course.course_name }}
+                                    </a>
+                                </td>
+                                <td>{{ course.start_date }}</td>
+                                <td>{{ course.end_date }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane" id="tab2">
+                    <table class="table table-hover table-bordered">
+                        <tbody>
+                            <tr>
+                                <td><strong>Адрес:</strong>{{ student.dossier.address }}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Любимы цвет:</strong>{{ student.dossier.get_favorite_color_display }}</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Нелюбимые курсы:</strong>
+                                    <ul>
+                                        {% for unloved_course in student.dossier.unloved_courses.all %}
+                                        <li>
+                                            <a href="{% url 'courses:course-detail' unloved_course.id %}">
+                                                {{ unloved_course.course_name }}
+                                            </a>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
