@@ -1,0 +1,37 @@
+<div class="row placeholders">
+    <div class="col-xs-6 col-sm-12 placeholder">
+        <div class="tabbable">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab1" data-toggle="tab">Досье</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab1">
+                    <table class="table table-hover table-bordered">
+                        <tbody>
+                            <tr>
+                                <td><strong>Адрес:</strong>{{ coach.dossier.address }}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Любимы цвет:</strong>{{ coach.dossier.get_favorite_color_display }}</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>Нелюбимые курсы:</strong>
+                                    <ul>
+                                        {% for unloved_course in coach.dossier.unloved_courses.all %}
+                                        <li>
+                                            <a href="{% url 'courses:course-detail' unloved_course.id %}">
+                                                {{ unloved_course.course_name }}
+                                            </a>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

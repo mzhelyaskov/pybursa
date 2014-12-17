@@ -1,42 +1,43 @@
 {% extends "coaches/coach_base.html" %}
 
 
-{% block addinfo %}
+{% load static %}
+
+
+{% block content %}
+<h1>{{ coach.surname }} {{ coach.name }}</h1>
+<hr/>
 <div class="row placeholders">
-    <div class="col-xs-6 col-sm-12 placeholder">
-        <div class="tabbable">
-            <ul class="nav nav-tabs">
-                <li class="active"><a href="#tab1" data-toggle="tab">Досье</a></li>
-            </ul>
-            <div class="tab-content">
-                <div class="tab-pane active" id="tab1">
-                    <table class="table table-hover table-bordered">
-                        <tbody>
-                            <tr>
-                                <td><strong>Адрес:</strong>{{ coach.dossier.address }}</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Любимы цвет:</strong>{{ coach.dossier.get_favorite_color_display }}</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <strong>Нелюбимые курсы:</strong>
-                                    <ul>
-                                        {% for unloved_course in coach.dossier.unloved_courses.all %}
-                                        <li>
-                                            <a href="{% url 'courses:course-detail' unloved_course.id %}">
-                                                {{ unloved_course.course_name }}
-                                            </a>
-                                        </li>
-                                        {% endfor %}
-                                    </ul>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+    <div class="col-xs-6 col-sm-2 placeholder">
+        <img style="width: 150px; height: 200px;"
+        src="{% static 'img/pylogo.jpeg' %}"
+        class="img-thumbnail"
+        alt="Фото">
+    </div>
+    <div class="col-xs-6 col-sm-10 placeholder">
+        <table class="table table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th>Персональные данные:</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Дата рождения:</strong>{{ coach.birth_date }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Мобильный:</strong>{{ coach.phone }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Email:</strong>{{ coach.email }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Роль:</strong>{{ coach.get_role_display }}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
-{% endblock addinfo %}
+<br/>
+{% include "coaches/coach_addinfo.html" with coach=coach %}
+{% endblock content %}
