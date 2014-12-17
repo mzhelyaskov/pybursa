@@ -1,49 +1,32 @@
-{% extends "base.html" %}
+{% extends "students/student_base.html" %}
 
-{% block nav-bar %}
-    {% include "navbar-side-students.html" %}
-{% endblock nav-bar %}
+
+{% load static %}
+
 
 {% block content %}
-<div id="page-inner">
-    <div class="row">
-        <div class="col-md-12">
-         <h2>СТУДЕНТЫ</h2>
-            <h5>All students list </h5>
-        </div>
-    </div>
-    <hr/>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel-body">
-                <div class="table-responsive">
-                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>ФИО</th>
-                                <th>EMAIL</th>
-                                <th>ПАКЕТ</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for student in students %}
-                            <tr class="odd gradeX">
-                                <td>{{ forloop.counter }}</td>
-                                <td>
-                                    <a href="/students/{{ student.id }}">
-                                        {{ student.surname }} {{ student.name }}
-                                    </a>
-                                </td>
-                                <td>{{ student.email }}</td>
-                                <td>{{ student.get_package_display }}</td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<table class="table table-striped table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>ФИО</th>
+            <th>Email</th>
+            <th>Пакет</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for student in students %}
+        <tr class="odd gradeX">
+            <td>{{ forloop.counter }}</td>
+            <td>
+                <a href="{% url 'students:student-detail' student.id %}">
+                    {{ student.surname }} {{ student.name }}
+                </a>
+            </td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.get_package_display }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock content %}

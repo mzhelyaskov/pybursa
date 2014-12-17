@@ -1,49 +1,38 @@
 {% extends "base.html" %}
 
-{% block nav-bar %}
-    {% include "navbar-side-courses.html" %}
-{% endblock nav-bar %}
+
+{% load static %}
+
+
+{% block title %} КУРСЫ {% endblock title %}
+
+
+{% block course-active %} class="active" {% endblock course-active %}
+
 
 {% block content %}
-<div id="page-inner">
-    <div class="row">
-        <div class="col-md-12">
-         <h2>КУРСЫ</h2>
-            <h5>All courses list </h5>
-        </div>
-    </div>
-    <hr/>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel-body">
-                <div class="table-responsive">
-                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>НАЗВАНИЕ</th>
-                                <th>ДАТА НАЧАЛА</th>
-                                <th>ДАТА ОКОНЧАНИЯ</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for course in courses  %}
-                            <tr class="odd gradeX">
-                                <td>{{ forloop.counter }}</td>
-                                <td>
-                                    <a href="/courses/{{ course.id }}">
-                                        {{ course.course_name }}
-                                    </a>
-                                </td>
-                                <td>{{ course.start_date }}</td>
-                                <td>{{ course.end_date }}</td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<table class="table table-striped table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>НАЗВАНИЕ</th>
+            <th>ДАТА НАЧАЛА</th>
+            <th>ДАТА ОКОНЧАНИЯ</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for course in courses  %}
+        <tr class="odd gradeX">
+            <td>{{ forloop.counter }}</td>
+            <td>
+                <a href="{% url 'courses:course-detail' course.id %}">
+                    {{ course.course_name }}
+                </a>
+            </td>
+            <td>{{ course.start_date }}</td>
+            <td>{{ course.end_date }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock content %}

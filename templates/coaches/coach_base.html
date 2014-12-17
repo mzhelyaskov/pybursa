@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+
+{% load static %}
+
+
+{% block title %} ПРЕПОДАВАТЕЛИ {% endblock title %}
+
+
+{% block coache-active %} class="active" {% endblock coache-active %}
+
+
+{% block content %}
+<h1>{{ coach.surname }} {{ coach.name }}</h1>
+<hr/>
+<div class="row placeholders">
+    <div class="col-xs-6 col-sm-2 placeholder">
+        <img style="width: 150px; height: 200px;"
+        src="{% static 'img/pylogo.jpeg' %}"
+        class="img-thumbnail"
+        alt="Фото">
+    </div>
+    <div class="col-xs-6 col-sm-10 placeholder">
+        <table class="table table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th>Персональные данные:</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Дата рождения:</strong>{{ coach.birth_date }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Мобильный:</strong>{{ coach.phone }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Email:</strong>{{ coach.email }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Роль:</strong>{{ coach.get_role_display }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<br/>
+{% block addinfo %} {% endblock addinfo %}
+{% endblock content %}

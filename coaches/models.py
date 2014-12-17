@@ -14,8 +14,8 @@ class Coach(models.Model):
     lecturer = 'LR'
     assistant = 'AT'
     position_view = (
-        (lecturer, 'Lecturer'),
-        (assistant, 'Assistant'),
+        (lecturer, u'Лектор'),
+        (assistant, u'Ассистент'),
     )
     role = models.CharField(u'Роль:', max_length=2, choices=position_view,
                             default=lecturer)

@@ -1,43 +1,102 @@
-{% extends "base.html" %}
+{% extends "students/student_base.html" %}
 
-{% block nav-bar %}
-    {% include "navbar-side-students.html" %}
-{% endblock nav-bar %}
+
+{% load static %}
+
 
 {% block content %}
-<div id="page-inner">
-    <div class="row">
-        <div class="col-md-12">
-         <h2>{{ student.surname }} {{ student.name }} ({{ student.get_package_display }})</h2>
-            <h5>Detailed information </h5>
-        </div>
+<h1>{{ student.name }} {{ student.surname }}</h1>
+<hr/>
+<div class="row placeholders">
+    <div class="col-xs-6 col-sm-2 placeholder ">
+        <img style="width: 150px; height: 200px;"
+        src="{% static 'img/pylogo.jpeg' %}"
+        class="img-thumbnail"
+        alt="Фото">
     </div>
-    <hr/>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel-body">
-                <div class="table-responsive">
-                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                            <tr class="odd gradeX">
-                                <td><strong>Имя</strong></td>
-                                <td>{{ student.name }}</td>
+    <div class="col-xs-6 col-sm-10 placeholder">
+        <table class="table table-hover table-condensed">
+            <thead>
+                <tr>
+                    <th>Персональные данные:</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Дата рождения:</strong>{{ student.birth_date }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Мобильный:</strong>{{ student.phone }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Email:</strong>{{ student.email }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Пакет:</strong>{{ student.get_package_display }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<br/>
+<div class="row placeholders">
+    <div class="col-xs-6 col-sm-12 placeholder ">
+        <div class="tabbable">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab1" data-toggle="tab">Посещаемые курсы</a></li>
+                <li><a href="#tab2" data-toggle="tab">Досье</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab1">
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead>
+                            <tr id="table-tab">
+                                <th>#</th>
+                                <th>Курс</th>
+                                <th>Дата начала</th>
+                                <th>Дата окончания</th>
                             </tr>
+                        </thead>
+                        <tbody>
+                            {% for course in student.courses.all %}
                             <tr class="odd gradeX">
-                                <td><strong>Фамилия</strong></td>
-                                <td>{{ student.surname }}</td>
+                                <td>{{ forloop.counter }}</td>
+                                <td>
+                                    <a href="{% url 'courses:course-detail' course.id %}">
+                                        {{ course.course_name }}
+                                    </a>
+                                </td>
+                                <td>{{ course.start_date }}</td>
+                                <td>{{ course.end_date }}</td>
                             </tr>
-                            <tr class="odd gradeX">
-                                <td><strong>Дата рождения</strong></td>
-                                <td>{{ student.birth_date }}</td>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane" id="tab2">
+                    <table class="table table-hover table-bordered">
+                        <tbody>
+                            <tr>
+                                <td><strong>Адрес:</strong>{{ student.dossier.address }}</td>
                             </tr>
-                            <tr class="odd gradeX">
-                                <td><strong>Email:</strong></td>
-                                <td>{{ student.email }}</td>
+                            <tr>
+                                <td><strong>Любимы цвет:</strong>{{ student.dossier.get_favorite_color_display }}</td>
                             </tr>
-                            <tr class="odd gradeX">
-                                <td><strong>Телефон</strong></td>
-                                <td>{{ student.phone }}</td>
+                            <tr>
+                                <td>
+                                    <strong>Нелюбимые курсы:</strong>
+                                    <ul>
+                                        {% for unloved_course in student.dossier.unloved_courses.all %}
+                                        <li>
+                                            <a href="{% url 'courses:course-detail' unloved_course.id %}">
+                                                {{ unloved_course.course_name }}
+                                            </a>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
                             </tr>
+                        </tbody>
                     </table>
                 </div>
             </div>

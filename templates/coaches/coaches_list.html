@@ -1,49 +1,38 @@
 {% extends "base.html" %}
 
-{% block nav-bar %}
-    {% include "navbar-side-coaches.html" %}
-{% endblock nav-bar %}
+
+{% load static %}
+
+
+{% block title %} ПРЕПОДАВАТЕЛИ {% endblock title %}
+
+
+{% block coache-active %} class="active" {% endblock coache-active %}
+
 
 {% block content %}
-<div id="page-inner">
-    <div class="row">
-        <div class="col-md-12">
-         <h2>ПРЕПОДАВАТЕЛИ</h2>
-            <h5>All coaches list </h5>
-        </div>
-    </div>
-    <hr/>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel-body">
-                <div class="table-responsive">
-                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>ФИО</th>
-                                <th>ТЕЛЕФОН</th>
-                                <th>ПОЗИЦИЯ</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for coach in coaches %}
-                            <tr class="odd gradeX">
-                                <td>{{ forloop.counter }}</td>
-                                <td>
-                                    <a href="/coaches/{{ coach.id }}">
-                                        {{ coach.surname }} {{ coach.name }}
-                                    </a>
-                                </td>
-                                <td>{{ coach.phone }}</td>
-                                <td>{{ coach.get_position_display }}</td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<table class="table table-striped table-bordered table-hover" id="dataTables-example">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>ФИО</th>
+            <th>ТЕЛЕФОН</th>
+            <th>ПОЗИЦИЯ</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for coach in coaches %}
+        <tr class="odd gradeX">
+            <td>{{ forloop.counter }}</td>
+            <td>
+                <a href="{% url 'coaches:coach-detail' coach.id %}">
+                    {{ coach.surname }} {{ coach.name }}
+                </a>
+            </td>
+            <td>{{ coach.phone }}</td>
+            <td>{{ coach.get_role_display }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock content %}

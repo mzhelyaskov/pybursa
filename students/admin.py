@@ -14,7 +14,7 @@ class StudentAdmin(admin.ModelAdmin):
             'fields': (('email', 'phone'),)
         }),
         ('Other information', {
-            'fields': ('package', 'course', 'dossier')
+            'fields': ('package', 'courses', 'dossier')
         }),
     )
     list_display = ['name', 'surname', 'birth_date', 'email', 'phone',
@@ -25,7 +25,7 @@ class StudentAdmin(admin.ModelAdmin):
                      'package']
     list_filter = ['birth_date', 'package']
     date_hierarchy = 'birth_date'
-    filter_horizontal = ['course']
+    filter_horizontal = ['courses']
     if len(Student.PACKAGE_VIEW) < 5:
         radio_fields = {"package": admin.HORIZONTAL}
     formfield_overrides = {

@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+
+{% load static %}
+
+
+{% block title %} Курсы {% endblock title %}
+
+
+{% block course-active %} class="active" {% endblock course-active %}
+
+
+{% block content %}
+<h1>{{ course.course_name }}</h1>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-hover table-condensed">
+            {% comment %}
+            <thead>
+                <tr>
+                    <th>Детальное описание курса:</th>
+                </tr>
+            </thead>
+            {% endcomment %}
+            <tbody>
+                <tr>
+                    <td><strong>Язык программирования:</strong>{{ course.get_programming_len_display }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Описание:</strong>{{ course.description }}</td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Преподаватель:</strong>
+                        {% if course.teacher.id %}
+                        <a href="{% url 'coaches:coach-detail' course.teacher.id %}">
+                            {{ course.teacher }}
+                        </a>
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong>Ассистент:</strong>
+                        {% if course.assistant.id %}
+                        <a href="{% url 'coaches:coach-detail' course.assistant.id %}">
+                            {{ course.assistant }}
+                        </a>
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Дата начала:</strong>{{ course.start_date }}</td>
+                </tr>
+                <tr>
+                    <td><strong>Дата окончания:</strong>{{ course.end_date }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+{% block addinfo %} {% endblock addinfo %}
+{% endblock content %}

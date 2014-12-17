@@ -19,7 +19,7 @@ class Student(models.Model):
     )
     package = models.CharField(u'Пакет:', max_length=2, choices=PACKAGE_VIEW,
                                default=STANDARD)
-    course = models.ManyToManyField('courses.Course', verbose_name=u"Курсы:",)
+    courses = models.ManyToManyField('courses.Course', verbose_name=u"Курсы:",)
     dossier = models.OneToOneField('dossier.Dossier', verbose_name=u"Досье:",
                                    null=True, blank=True,)
 
