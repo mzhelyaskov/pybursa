@@ -21,7 +21,8 @@ class Student(models.Model):
                                default=STANDARD)
     courses = models.ManyToManyField('courses.Course', verbose_name=u"Курсы:",)
     dossier = models.OneToOneField('dossier.Dossier', verbose_name=u"Досье:",
-                                   null=True, blank=True,)
+                                   null=True, blank=True)
+    photo = models.FileField(null=True, blank=True)
 
     def __unicode__(self):
         return self.surname + ' ' + self.name

@@ -1,0 +1,19 @@
+{% extends "students/student_base.html" %}
+
+
+{% load static %}
+
+
+{% block content %}
+<h1>Форма редактирования реквизитов студента</h1>
+<hr/>
+<div class="row placeholders">
+    <div class="col-xs-12 col-sm-12 placeholder ">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Сохранить"/>
+        </form>
+    </div>
+</div>
+{% endblock content %}

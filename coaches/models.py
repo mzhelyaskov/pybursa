@@ -21,6 +21,7 @@ class Coach(models.Model):
                             default=lecturer)
     dossier = models.OneToOneField('dossier.Dossier', verbose_name=u"Досье:",
                                    null=True, blank=True)
+    photo = models.FileField(null=True, blank=True)
 
     def __unicode__(self):
         return self.surname + ' ' + self.name

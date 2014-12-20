@@ -14,7 +14,7 @@ class CoachAdmin(admin.ModelAdmin):
             'fields': (('email', 'phone'),)
         }),
         ('Job information', {
-            'fields': (('role', 'dossier'),)
+            'fields': (('role', 'dossier'), 'photo')
         }),
     )
     list_display = ['user', 'name', 'surname', 'birth_date', 'email', 'phone',

@@ -12,6 +12,7 @@
             <th>ФИО</th>
             <th>Email</th>
             <th>Пакет</th>
+            <th>...</th>
         </tr>
     </thead>
     <tbody>
@@ -25,6 +26,7 @@
             </td>
             <td>{{ student.email }}</td>
             <td>{{ student.get_package_display }}</td>
+            <td><a href="{% url 'students:student-edit' student.id %}">Редактировать</a></td>
         </tr>
         {% endfor %}
     </tbody>

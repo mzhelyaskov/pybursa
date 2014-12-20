@@ -14,7 +14,7 @@ class StudentAdmin(admin.ModelAdmin):
             'fields': (('email', 'phone'),)
         }),
         ('Other information', {
-            'fields': ('package', 'courses', 'dossier')
+            'fields': ('package', 'courses', 'dossier', 'photo')
         }),
     )
     list_display = ['name', 'surname', 'birth_date', 'email', 'phone',
