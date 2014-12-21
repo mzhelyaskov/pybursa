@@ -5,7 +5,9 @@
 
 
 {% block content %}
-<h1>{{ student.name }} {{ student.surname }}</h1>
+<h1>
+{{ student.name }} {{ student.surname }}
+</h1>
 <hr/>
 <div class="row placeholders">
     <div class="col-xs-6 col-sm-2 placeholder ">
@@ -14,12 +16,13 @@
         alt="Фото"
         src="{% static 'img/' %}{{ student.photo.name|slice:'2:'|default:'pylogo.jpeg' }}">
     </div>
-    <h5></h5>
-    <div class="col-xs-6 col-sm-10 placeholder">
+    <div class="col-xs-6 col-sm-7 placeholder">
         <table class="table table-hover table-condensed">
             <thead>
                 <tr>
-                    <th>Персональные данные:</th>
+                    <th>
+                        Персональные данные:
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -37,6 +40,11 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div class="col-xs-6 col-sm-3 placeholder">
+        <a href="{% url 'students:student-create' %}"><i class="fa fa-plus-square fa-half-size"></i></a>
+        <a href="{% url 'students:student-edit' student.id %}"><i class="fa fa-pencil-square fa-half-size"></i></a>
+        <a href="{% url 'students:student-delete' student.id %}"><i class="fa fa-minus-square fa-half-size"></i></a>
     </div>
 </div>
 <br/>

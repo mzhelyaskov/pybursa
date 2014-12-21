@@ -5,13 +5,14 @@
 
 
 {% block content %}
-<table class="table table-striped table-bordered table-hover" id="dataTables-example">
+<table class="table table-striped table-bordered table-hover table-condensed" id="dataTables-example">
     <thead>
         <tr>
             <th>#</th>
             <th>ФИО</th>
             <th>ТЕЛЕФОН</th>
             <th>ПОЗИЦИЯ</th>
+            <th>...</th>
         </tr>
     </thead>
     <tbody>
@@ -25,6 +26,11 @@
             </td>
             <td>{{ coach.phone }}</td>
             <td>{{ coach.get_role_display }}</td>
+            <td>
+                <a href="{% url 'coaches:coach-create' %}"><i class="fa fa-plus-square fa-half-size"></i></a>
+                <a href="{% url 'coaches:coach-edit' coach.id %}"><i class="fa fa-pencil-square fa-half-size"></i></a>
+                <a href="{% url 'coaches:coach-delete' coach.id %}"><i class="fa fa-minus-square fa-half-size"></i></a>
+            </td>
         </tr>
         {% endfor %}
     </tbody>

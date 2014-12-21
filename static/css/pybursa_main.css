@@ -3556,3 +3556,18 @@ fieldset[disabled] .btn-vk.active {
   margin-right: 10px;
 }
 
+.fa-plus-square{
+  color: #008000;
+}
+
+.fa-minus-square{
+  color: red;
+}
+
+.fa-half-size {
+    font-size: 1.3em;
+}
+
+.h1 a{
+  text-align: right;
+}

@@ -5,7 +5,7 @@
 
 
 {% block content %}
-<table class="table table-striped table-bordered table-hover">
+<table class="table table-striped table-bordered table-hover table-condensed">
     <thead>
         <tr>
             <th>#</th>
@@ -26,7 +26,11 @@
             </td>
             <td>{{ student.email }}</td>
             <td>{{ student.get_package_display }}</td>
-            <td><a href="{% url 'students:student-edit' student.id %}">Редактировать</a></td>
+            <td>
+                <a href="{% url 'students:student-create' %}"><i class="fa fa-plus-square fa-half-size"></i></a>
+                <a href="{% url 'students:student-edit' student.id %}"><i class="fa fa-pencil-square fa-half-size"></i></a>
+                <a href="{% url 'students:student-delete' student.id %}"><i class="fa fa-minus-square fa-half-size"></i></a>
+            </td>
         </tr>
         {% endfor %}
     </tbody>

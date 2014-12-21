@@ -14,7 +14,7 @@
              alt="Фото"
              src="{% static 'img/' %}{{ coach.photo.name|slice:'2:'|default:'pylogo.jpeg' }}">
     </div>
-    <div class="col-xs-6 col-sm-10 placeholder">
+    <div class="col-xs-6 col-sm-7 placeholder">
         <table class="table table-hover table-condensed">
             <thead>
                 <tr>
@@ -36,6 +36,11 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div class="col-xs-6 col-sm-3 placeholder">
+        <a href="{% url 'coaches:coach-create' %}"><i class="fa fa-plus-square fa-half-size"></i></a>
+        <a href="{% url 'coaches:coach-edit' coach.id %}"><i class="fa fa-pencil-square fa-half-size"></i></a>
+        <a href="{% url 'coaches:coach-delete' coach.id %}"><i class="fa fa-minus-square fa-half-size"></i></a>
     </div>
 </div>
 <br/>

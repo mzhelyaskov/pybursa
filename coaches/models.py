@@ -5,7 +5,8 @@ from django.contrib.auth.models import User
 
 
 class Coach(models.Model):
-    user = models.ForeignKey(User, verbose_name=u"Польз-ь:",)
+    user = models.ForeignKey(User, verbose_name=u"Польз-ь:",
+                             null=True, blank=True)
     name = models.CharField(u'Имя:', max_length=60)
     surname = models.CharField(u'Фамилия:', max_length=60)
     birth_date = models.DateField(u'Дата рождения:',)

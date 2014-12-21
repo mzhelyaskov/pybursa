@@ -10,4 +10,6 @@ urlpatterns = patterns('',
     url(r'^students/', include('students.urls', namespace='students')),
     url(r'^coaches/', include('coaches.urls', namespace='coaches')),
     url(r'^courses/', include('courses.urls', namespace='courses')),
+    url(r'^results$', TemplateView.as_view(template_name='result.html'),
+        name='result-message'),
 )

@@ -13,7 +13,7 @@
 {% block content %}
 <h1>{{ course.course_name }}</h1>
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-9">
         <table class="table table-hover table-condensed">
             {% comment %}
             <thead>
@@ -57,6 +57,11 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div class="col-xs-6 col-sm-3 placeholder">
+        <a href="{% url 'courses:course-create' %}"><i class="fa fa-plus-square fa-half-size"></i></a>
+        <a href="{% url 'courses:course-edit' course.id %}"><i class="fa fa-pencil-square fa-half-size"></i></a>
+        <a href="{% url 'courses:course-delete' course.id %}"><i class="fa fa-minus-square fa-half-size"></i></a>
     </div>
 </div>
 {% block addinfo %} {% endblock addinfo %}

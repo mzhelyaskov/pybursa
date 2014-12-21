@@ -6,11 +6,6 @@ from django import forms
 
 
 class StudentForm(forms.Form):
-    name = forms.CharField(max_length=60)
-    surname = forms.CharField(max_length=60)
-    birth_date = forms.DateField()
-    email = forms.EmailField()
-    phone = forms.CharField(max_length=60)
     standard = 'SD'
     gold = 'GD'
     vip = 'VP'
@@ -19,7 +14,51 @@ class StudentForm(forms.Form):
         (gold, 'Gold'),
         (vip, 'VIP'),
     )
-    package = forms.ChoiceField(widget=forms.RadioSelect, choices=package_view)
+    name = forms.CharField(label=u"Имя:",
+                           max_length=60,
+                           widget=forms.TextInput(
+                               attrs={
+                                   'class': 'form-control',
+                                   'placeholder': u"Введите имя..."
+                               }
+                           ))
+    surname = forms.CharField(label=u"Фамилия:",
+                              max_length=60,
+                              widget=forms.TextInput(
+                                  attrs={
+                                      'class': 'form-control',
+                                      'placeholder': u"Введите фамилию..."
+                                  }
+                              ))
+    birth_date = forms.DateField(label=u"Дата рождения:",
+                                 widget=forms.DateInput(
+                                     attrs={
+                                         'class': 'form-control',
+                                         'placeholder': u'Введите дату рож-я'
+                                     }
+                                 ))
+    email = forms.EmailField(label=u"Email:",
+                             widget=forms.TextInput(
+                                 attrs={
+                                     'class': 'form-control',
+                                     'placeholder': u'Введите Email...'
+                                 }
+                             ))
+    phone = forms.CharField(label=u"Телефон:",
+                            max_length=60,
+                            widget=forms.TextInput(
+                                attrs={
+                                    'class': 'form-control',
+                                    'placeholder': u'Введите телефон...'
+                                }
+                            ))
+    package = forms.ChoiceField(label=u"Пакет:",
+                                widget=forms.RadioSelect,
+                                choices=package_view,
+                                error_messages={
+                                    'required': u'Пакет указан некорректно.'
+                                },
+                                help_text=u"Укажите вид обучающего пакета... ")
 
 
 def students_list(request):
@@ -46,7 +85,8 @@ def student_edit(request, student_id):
             student.phone = form.cleaned_data['phone']
             student.package = form.cleaned_data['package']
             student.save()
-            return redirect('student-edit', student_id=student.id)
+            # return redirect('students:student-edit', student_id=student.id)
+            return redirect('result-message')
     else:
         context = {
             'name': student.name,
@@ -58,3 +98,40 @@ def student_edit(request, student_id):
         }
         form = StudentForm(initial=context)
     return render(request, 'students/student_edit.html', {'form': form})
+
+
+def student_delete(request, student_id):
+    student = get_object_or_404(Student, id=student_id)
+    if request.method == 'POST':
+        student.delete()
+        return redirect('result-message')
+    else:
+        context = {
+            'name': student.name,
+            'surname': student.surname,
+            'birth_date': student.birth_date,
+            'email': student.email,
+            'phone': student.phone,
+            'package': student.package
+        }
+        form = StudentForm(initial=context)
+    return render(request, 'students/student_delete.html', {'form': form})
+
+
+def student_create(request):
+    if request.method == 'POST':
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            student = Student(
+                name=form.cleaned_data['name'],
+                surname=form.cleaned_data['surname'],
+                birth_date=form.cleaned_data['birth_date'],
+                email=form.cleaned_data['email'],
+                phone=form.cleaned_data['phone'],
+                package=form.cleaned_data['package']
+            )
+            student.save()
+            return redirect('result-message')
+    else:
+        form = StudentForm()
+    return render(request, 'students/student_create.html', {'form': form})

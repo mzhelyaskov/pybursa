@@ -11,7 +11,13 @@
             {% csrf_token %}
             <div class="box box-primary">
                 <div class="box-header">
-                    <h3 class="box-title">Редактирование реквизитов студента</h3>
+                    <div class="form-group has-warning">
+                        <h3 class="box-title">
+                            <label class="control-label"><i class="fa fa-warning"></i>
+                                Удалить студента?
+                            </label>
+                        </h3>
+                    </div>
                 </div>
                 <div class="box-body">
                     {% for field in form %}
@@ -29,7 +35,7 @@
                     {% endfor %}
                 </div>
                 <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                    <button type="submit" class="btn btn-primary">Удалить</button>
                 </div>
             </div>
         </form>
