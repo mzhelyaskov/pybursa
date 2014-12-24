@@ -1,62 +1,113 @@
-<div class="row placeholders">
-    <div class="col-xs-6 col-sm-12 placeholder ">
-        <div class="tabbable">
-            <ul class="nav nav-tabs">
-                <li class="active"><a href="#tab1" data-toggle="tab">Посещаемые курсы</a></li>
-                <li><a href="#tab2" data-toggle="tab">Досье</a></li>
-            </ul>
-            <div class="tab-content">
-                <div class="tab-pane active" id="tab1">
-                    <table class="table table-striped table-hover table-bordered">
-                        <thead>
-                            <tr id="table-tab">
-                                <th>#</th>
-                                <th>Курс</th>
-                                <th>Дата начала</th>
-                                <th>Дата окончания</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {% for course in student.courses.all %}
-                            <tr class="odd gradeX">
-                                <td>{{ forloop.counter }}</td>
-                                <td>
-                                    <a href="{% url 'courses:course-detail' course.id %}">
-                                        {{ course.course_name }}
-                                    </a>
-                                </td>
-                                <td>{{ course.start_date }}</td>
-                                <td>{{ course.end_date }}</td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-                <div class="tab-pane" id="tab2">
-                    <table class="table table-hover table-bordered">
-                        <tbody>
-                            <tr>
-                                <td><strong>Адрес:</strong>{{ student.dossier.address }}</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Любимый цвет:</strong>{{ student.dossier.get_favorite_color_display }}</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <strong>Нелюбимые курсы:</strong>
-                                    <ul>
+<div class="nav-tabs-custom">
+    <ul class="nav nav-tabs pull-right">
+        <li><a href="#tab_2" data-toggle="tab">Досье</a></li>
+        <li class="active"><a href="#tab_1" data-toggle="tab">Посещаемые курсы</a></li>
+        <li class="pull-left header"><i class="fa fa-th"></i> Дополнительная информация:</li>
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="tab_1">
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        <th>#</th>
+                        <th>Курс</th>
+                        <th>Дата начала</th>
+                        <th>Дата окончания</th>
+                    </tr>
+                    {% for course in student.courses.all %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>
+                            <a href="{% url 'courses:course-detail' course.id %}">
+                                {{ course.course_name }}
+                            </a>
+                        </td>
+                        <td>{{ course.start_date }}</td>
+                        <td>{{ course.end_date }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane" id="tab_2">
+            <div class="box-body">
+                <div class="box-group" id="accordion">
+                    <div class="panel box box-primary">
+                        <div class="box-header">
+                            <h4 class="box-title">
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                    Нелюбимые курсы:
+                                </a>
+                            </h4>
+                        </div>
+                        <div style="height: 0px;" id="collapseOne" class="panel-collapse collapse">
+                            <div class="box-body">
+                                <table class="table table-hover">
+                                    <tbody>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Курс</th>
+                                            <th>Дата начала</th>
+                                            <th>Дата окончания</th>
+                                        </tr>
                                         {% for unloved_course in student.dossier.unloved_courses.all %}
-                                        <li>
-                                            <a href="{% url 'courses:course-detail' unloved_course.id %}">
-                                                {{ unloved_course.course_name }}
-                                            </a>
-                                        </li>
+                                        <tr>
+                                            <td>{{ forloop.counter }}</td>
+                                            <td>
+                                                <a href="{% url 'courses:course-detail' unloved_course.id %}">
+                                                    {{ unloved_course.course_name }}
+                                                </a>
+                                            </td>
+                                            <td>{{ unloved_course.start_date }}</td>
+                                            <td>{{ unloved_course.end_date }}</td>
+                                        </tr>
                                         {% endfor %}
-                                    </ul>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel box box-danger">
+                        <div class="box-header">
+                            <h4 class="box-title">
+                                <a class="" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                                    Адрес:
+                                </a>
+                            </h4>
+                        </div>
+                        <div style="" id="collapseTwo" class="panel-collapse collapse in">
+                            <div class="box-body">
+                                <dl class="dl-horizontal">
+                                    <dt>Индекс:</dt>
+                                        <dd>{{ student.dossier.address.index }}</dd>
+                                    <dt>Страна:</dt>
+                                        <dd>{{ student.dossier.address.country }}</dd>
+                                    <dt>Область:</dt>
+                                        <dd>{{ student.dossier.address.district }}</dd>
+                                    <dt>Райен:</dt>
+                                        <dd>{{ student.dossier.address.region }}</dd>
+                                    <dt>Улица:</dt>
+                                        <dd>{{ student.dossier.address.street }}</dd>
+                                    <dt>Дом:</dt>
+                                        <dd>{{ student.dossier.address.house }}</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel box box-success">
+                        <div class="box-header">
+                            <h4 class="box-title">
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                                    Любимый цвет:
+                                </a>
+                            </h4>
+                        </div>
+                        <div style="height: 0px;" id="collapseThree" class="panel-collapse collapse">
+                            <div class="box-body">
+                                {{ student.dossier.get_favorite_color_display }}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

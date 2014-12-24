@@ -2213,6 +2213,12 @@ Component: timeline
   border-left-width: 1px;
   border-right-width: 0px;
 }
+
+.pull-right{
+  margin-top: 10px;
+  margin-right: 6px;
+}
+
 .nav-tabs-custom > .nav-tabs > li.header {
   font-weight: 400;
   line-height: 35px;
@@ -3542,10 +3548,10 @@ fieldset[disabled] .btn-vk.active {
   margin-left: 25px;
 }
 
-.table thead tr {
-  background-color: #66afe9;
-  color: #FFF;
-}
+/*.table thead tr {*/
+  /*background-color: #66afe9;*/
+  /*color: #FFF;*/
+/*}*/
 
 #table-tab {
   background-color: #FFF;
@@ -3570,4 +3576,10 @@ fieldset[disabled] .btn-vk.active {
 
 .h1 a{
   text-align: right;
+}
+
+.tablefeatures {
+  display: inline-block;
+  border-radius: 4px;
+  float: right;
 }

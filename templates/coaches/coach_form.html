@@ -1,4 +1,4 @@
-{% extends "courses/courses_base.html" %}
+{% extends "coaches/coach_base.html" %}
 
 
 {% load static %}
@@ -11,7 +11,7 @@
             {% csrf_token %}
             <div class="box box-primary">
                 <div class="box-header">
-                    <h3 class="box-title">Создание нового курса</h3>
+                    <h3 class="box-title">{{ title }}</h3>
                 </div>
                 {{ form.as_p }}
                 <div class="box-footer">

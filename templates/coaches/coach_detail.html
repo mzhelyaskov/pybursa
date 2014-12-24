@@ -1,0 +1,47 @@
+{% extends "coaches/coach_base.html" %}
+
+
+{% load static %}
+
+
+{% block content %}
+<h1>{{ coach.surname }} {{ coach.name }}</h1>
+<hr/>
+<div class="row placeholders">
+    <div class="col-xs-6 col-sm-2 placeholder">
+        <img style="width: 150px; height: 200px;"
+             class="img-thumbnail"
+             alt="Фото"
+             src="{% static 'img/' %}{{ coach.photo.name|slice:'2:'|default:'pylogo.jpeg' }}">
+    </div>
+    <div class="col-md-6">
+        <div class="box box-info">
+            <div class="box-header">
+                <i class="fa fa-thumb-tack"></i>
+                <h3 class="box-title">Персональные данные:</h3>
+                <div class="pull-right">
+                    <a href="{% url 'coaches:coach-create' %}"><i class="fa fa-plus-square fa-half-size"></i></a>
+                    <a href="{% url 'coaches:coach-edit' coach.id %}"><i class="fa fa-pencil-square fa-half-size"></i></a>
+                    <a href="{% url 'coaches:coach-delete' coach.id %}"><i class="fa fa-minus-square fa-half-size"></i></a>
+                </div>
+            </div>
+            <div class="box box-solid">
+                <div class="box-body">
+                    <dl class="dl-horizontal">
+                        <dt>Дата рождения:</dt>
+                            <dd>{{ coach.birth_date }}</dd>
+                        <dt>Мобильный:</dt>
+                            <dd>{{ coach.phone }}</dd>
+                        <dt>Email:</dt>
+                            <dd>{{ coach.email }}</dd>
+                        <dt>Роль:</dt>
+                            <dd>{{ coach.get_role_display }}</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br/>
+{% include "coaches/coach_addinfo.html" with coach=coach %}
+{% endblock content %}

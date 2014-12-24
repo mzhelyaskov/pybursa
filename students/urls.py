@@ -3,7 +3,6 @@ from students.views import students_list, student_item
 from students.views import student_edit, student_delete, student_create
 
 
-
 urlpatterns = patterns('',
     url(r'^$', students_list, name='index'),
     url(r'^(?P<student_id>\d+)$', student_item, name='student-detail'),

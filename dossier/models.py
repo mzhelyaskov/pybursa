@@ -12,13 +12,13 @@ class Dossier(models.Model):
     green = 'green'
     indigo = 'indigo'
     favorite_color_view = (
-        (red, u'красный'),
-        (yellow, u'желтый'),
-        (blue, u'голубой'),
-        (violet, u'фиолетовый'),
-        (orange, u'оранжевый'),
-        (green, u'зеленый'),
-        (indigo, u'синий'),
+        (red, u'Красный'),
+        (yellow, u'Желтый'),
+        (blue, u'Голубой'),
+        (violet, u'Фиолетовый'),
+        (orange, u'Оранжевый'),
+        (green, u'Зеленый'),
+        (indigo, u'Синий'),
     )
     address = models.ForeignKey('address.Address',
                                 verbose_name=u"Адрес:")
@@ -26,7 +26,7 @@ class Dossier(models.Model):
                                              verbose_name=u"Нелюбимые курсы:")
     favorite_color = models.CharField(u"Любимый цвет:", max_length=6,
                                       choices=favorite_color_view,
-                                      blank=True)
+                                      blank=True, null=True)
 
     def __unicode__(self):
         return u"Досье №%s" % self.id

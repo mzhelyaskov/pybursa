@@ -1,0 +1,54 @@
+{% extends "courses/course_base.html" %}
+
+
+{% block content %}
+<div class="row">
+    <div class="col-md-9">
+        <div class="box box-info">
+            <div class="box-header">
+                <i class="fa fa-laptop"></i>
+                <h3 class="box-title">{{ course.course_name }}</h3>
+                <div class="pull-right">
+                    <a href="{% url 'courses:course-create' %}"><i class="fa fa-plus-square fa-half-size"></i></a>
+                    <a href="{% url 'courses:course-edit' course.id %}"><i class="fa fa-pencil-square fa-half-size"></i></a>
+                    <a href="{% url 'courses:course-delete' course.id %}"><i class="fa fa-minus-square fa-half-size"></i></a>
+                </div>
+            </div>
+            <div class="box box-solid">
+                <div class="box-body">
+                    <dl class="dl-horizontal">
+                        <dt>Язык программирования:</dt>
+                            <dd>{{ course.get_programming_len_display }}</dd>
+                        <dt>Описание:</dt>
+                            <dd>{{ course.description }}</dd>
+                        <dt>Преподаватель:</dt>
+                            {% if course.teacher.id %}
+                            <dd>
+                                <a href="{% url 'coaches:coach-detail' course.teacher.id %}">
+                                    {{ course.teacher }}
+                                </a>
+                            </dd>
+                            {% else %}
+                            <dd> --- </dd>
+                            {% endif %}
+                        <dt>Ассистент:</dt>
+                            {% if course.assistant.id %}
+                            <dd>
+                                <a href="{% url 'coaches:coach-detail' course.assistant.id %}">
+                                    {{ course.assistant }}
+                                </a>
+                            </dd>
+                            {% else %}
+                            <dd> --- </dd>
+                            {% endif %}
+                        <dt>Дата начала:</dt>
+                            <dd>{{ course.start_date }}</dd>
+                        <dt>Дата окончания:</dt>
+                            <dd>{{ course.end_date }}</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

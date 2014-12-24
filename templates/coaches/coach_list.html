@@ -1,0 +1,52 @@
+{% extends "coaches/coach_base.html" %}
+
+
+{% load static %}
+
+
+{% block table_title %}
+    Список преподавателей
+{% endblock table_title %}
+
+
+{% block head_column_titles %}
+    <th aria-label="Rendering engine: activate to sort column descending" aria-sort="ascending" style="width: 3%" colspan="1" rowspan="1" aria-controls="example1" tabindex="0" role="columnheader" class="sorting_asc">№п/п</th>
+    <th aria-label="Browser: activate to sort column ascending" style="width: 265px;" colspan="1" rowspan="1" aria-controls="example1" tabindex="0" role="columnheader" class="sorting">Преподаватель</th>
+    <th aria-label="Platform(s): activate to sort column ascending" style="width: 229px;" colspan="1" rowspan="1" aria-controls="example1" tabindex="0" role="columnheader" class="sorting">Телефон</th>
+    <th aria-label="Engine version: activate to sort column ascending" style="width: 152px;" colspan="1" rowspan="1" aria-controls="example1" tabindex="0" role="columnheader" class="sorting">Позиция</th>
+    <th aria-label="CSS grade: activate to sort column ascending" style="width: 53px;" colspan="1" rowspan="1" aria-controls="example1" tabindex="0" role="columnheader" class="sorting"></th></tr>
+{% endblock head_column_titles %}
+
+
+{% block foot_column_titles %}
+    <th colspan="1" rowspan="1">№п/п</th>
+    <th colspan="1" rowspan="1">Преподаватель</th>
+    <th colspan="1" rowspan="1">Телефон</th>
+    <th colspan="1" rowspan="1">Позиция</th>
+    <th colspan="1" rowspan="1"></th>
+{% endblock foot_column_titles %}
+
+
+{% block table_content %}
+    {% for coach in coaches %}
+    {% if forloop.counter|divisibleby:"2" %}
+    <tr class="odd">
+    {% else %}
+    <tr class="even">
+    {% endif %}
+        <td class="  sorting_1">{{ forloop.counter }}</td>
+        <td>
+            <a href="{% url 'coaches:coach-detail' coach.id %}">
+                {{ coach.surname }} {{ coach.name }}
+            </a>
+        </td>
+        <td>{{ coach.phone }}</td>
+        <td>{{ coach.get_role_display }}</td>
+        <td>
+            <a href="{% url 'coaches:coach-create' %}"><i class="fa fa-plus-square fa-half-size"></i></a>
+            <a href="{% url 'coaches:coach-edit' coach.id %}"><i class="fa fa-pencil-square fa-half-size"></i></a>
+            <a href="{% url 'coaches:coach-delete' coach.id %}"><i class="fa fa-minus-square fa-half-size"></i></a>
+        </td>
+    </tr>
+    {% endfor %}
+{% endblock table_content %}

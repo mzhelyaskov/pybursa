@@ -16,35 +16,32 @@
         alt="Фото"
         src="{% static 'img/' %}{{ student.photo.name|slice:'2:'|default:'pylogo.jpeg' }}">
     </div>
-    <div class="col-xs-6 col-sm-7 placeholder">
-        <table class="table table-hover table-condensed">
-            <thead>
-                <tr>
-                    <th>
-                        Персональные данные:
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Дата рождения:</strong>{{ student.birth_date }}</td>
-                </tr>
-                <tr>
-                    <td><strong>Мобильный:</strong>{{ student.phone }}</td>
-                </tr>
-                <tr>
-                    <td><strong>Email:</strong>{{ student.email }}</td>
-                </tr>
-                <tr>
-                    <td><strong>Пакет:</strong>{{ student.get_package_display }}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="col-xs-6 col-sm-3 placeholder">
-        <a href="{% url 'students:student-create' %}"><i class="fa fa-plus-square fa-half-size"></i></a>
-        <a href="{% url 'students:student-edit' student.id %}"><i class="fa fa-pencil-square fa-half-size"></i></a>
-        <a href="{% url 'students:student-delete' student.id %}"><i class="fa fa-minus-square fa-half-size"></i></a>
+    <div class="col-md-6">
+        <div class="box box-info">
+            <div class="box-header">
+                <i class="fa fa-thumb-tack"></i>
+                <h3 class="box-title">Персональные данные:</h3>
+                <div class="pull-right">
+                    <a href="{% url 'students:student-create' %}"><i class="fa fa-plus-square fa-half-size"></i></a>
+                    <a href="{% url 'students:student-edit' student.id %}"><i class="fa fa-pencil-square fa-half-size"></i></a>
+                    <a href="{% url 'students:student-delete' student.id %}"><i class="fa fa-minus-square fa-half-size"></i></a>
+                </div>
+            </div>
+            <div class="box box-solid">
+                <div class="box-body">
+                    <dl class="dl-horizontal">
+                        <dt>Дата рождения:</dt>
+                            <dd>{{ student.birth_date }}</dd>
+                        <dt>Мобильный:</dt>
+                            <dd>{{ student.phone }}</dd>
+                        <dt>Email:</dt>
+                            <dd>{{ student.email }}</dd>
+                        <dt>Пакет:</dt>
+                            <dd>{{ student.get_package_display }}</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <br/>

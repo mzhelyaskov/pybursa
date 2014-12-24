@@ -1,4 +1,4 @@
-{% extends "coaches/coach_base.html" %}
+{% extends "courses/course_base.html" %}
 
 
 {% load static %}
@@ -11,11 +11,11 @@
             {% csrf_token %}
             <div class="box box-primary">
                 <div class="box-header">
-                    <h3 class="box-title">Удаление преподавателя</h3>
+                    <h3 class="box-title">{{ title }}</h3>
                 </div>
                 {{ form.as_p }}
                 <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Удалить</button>
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
                 </div>
             </div>
         </form>
