@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+
+{% load static %}
+
+
+{% block title %} Отправка почты {% endblock title %}
+
+
+{% block content %}
+
+{% if messages %}
+{% for message in messages %}
+    {# <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li> #}
+    <div class="alert alert-success" role="alert">{{ message }}</div>
+{% endfor %}
+{% endif %}
+
+<div class="row placeholders">
+    <div class="col-xs-12 col-sm-12 placeholder ">
+        <form method="post">
+            {% csrf_token %}
+            <div class="box box-primary">
+                <div class="box-header">
+                    <h3 class="box-title">{{ title }}</h3>
+                </div>
+
+                <div class="box-body">
+                    <dl class="dl-horizontal">
+                        <p>Тема письма: {{ form.theme }}</p>
+                        <p>Отправитель: {{ form.email }}</p>
+                        <p>Достопочтенный и многоуважаемый {{ form.coach }} !</p>
+                        <p>
+                            Спешу уведомить Вас о неподобающем поведении студента {{ form.student }} .
+                            <br>
+                            (Посещаемые куры: [Список курсов в соответствии с выбранным студентом])
+                        </p>
+                        <p>
+                            Дело в следующем:
+                            <br>
+                            {{ form.body }}
+                        </p>
+                        <div class="box-footer">
+                            <button type="submit" class="btn btn-primary">Отправить</button>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+{% endblock content %}

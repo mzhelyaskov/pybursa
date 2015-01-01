@@ -43,6 +43,28 @@
             </div>
         </div>
     </div>
+
+    <div class="col-md-4">
+        <div class="box box-info">
+            <div class="box-header">
+                <i class="fa fa-thumb-tack"></i>
+                <h3 class="box-title">Вы также можете:</h3>
+            </div>
+            <div class="box box-solid">
+                <div class="box-body">
+                    <dl class="dl-horizontal">
+                        <!--<form action="{% url 'mail' %}" role="form" method="get">-->
+                            <!--{% csrf_token %}-->
+                            <!--<input hidden="True" type="text" name="email-from" value="{{ student.email }}">-->
+                            <!--<button type="submit" class="btn btn-primary">Наябидничать тренеру</button>-->
+                        <!--</form>-->
+                        <a href="{% url 'mail' %}"><input type="button" value="Наябидничать тренеру"></a>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 <br/>
 {% include "students/student_addinfo.html" with student=student %}
