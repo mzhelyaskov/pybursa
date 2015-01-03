@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-03 10:47+0000\n"
+"POT-Creation-Date: 2015-01-03 13:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,11 +49,11 @@ msgstr "Assistant"
 msgid "Досье:"
 msgstr "Dossier:"
 
-#: pybursa/settings.py:90
+#: pybursa/settings.py:90 templates/base.html:50
 msgid "Russian"
 msgstr "Русский"
 
-#: pybursa/settings.py:91
+#: pybursa/settings.py:91 templates/base.html:43
 msgid "English"
 msgstr "Английский"
 
@@ -64,6 +64,10 @@ msgstr "Theme"
 #: pybursa/views.py:24
 msgid "Тело письма"
 msgstr "Message body"
+
+#: pybursa/views.py:45
+msgid "Письмо успешно отправлено"
+msgstr "Your massage successfully sent"
 
 #: pybursa/views.py:50
 msgid "Форма отправки почты преподавателю"
@@ -126,19 +130,19 @@ msgstr ""
 msgid "Unknown content"
 msgstr ""
 
-#: templates/base.html:66
+#: templates/base.html:76
 msgid "Главная"
 msgstr "Main"
 
-#: templates/base.html:71
+#: templates/base.html:81
 msgid "Студенты"
 msgstr "Students"
 
-#: templates/base.html:76
+#: templates/base.html:86
 msgid "Преподаватели"
 msgstr "Coaches"
 
-#: templates/base.html:81
+#: templates/base.html:91
 msgid "Курсы"
 msgstr "Courses"
 

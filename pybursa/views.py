@@ -42,7 +42,7 @@ class MailView(FormView):
 
         send_mail(theme, mail_body, self.request.GET.get('email-from'),
                   [coach.email], fail_silently=False)
-        messages.success(self.request, 'Your message successfully sent')
+        messages.success(self.request, _(u'Письмо успешно отправлено'))
         return redirect('mail')
 
     def get_context_data(self, **kwargs):

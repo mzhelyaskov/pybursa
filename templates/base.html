@@ -36,28 +36,22 @@
                     <span class="icon-bar"></span>
                 </a>
 
-                <form action="{% url 'set_language' %}" method="post">
-                    {% csrf_token %}
-                    <input name="language" type="text"/>
-                    <input type="submit" value="Go"/>
-                </form>
-
-                <form action="{% url 'set_language' %}" method="post">
-                    {% csrf_token %}
-                    <input name="next" type="hidden" value="{{ redirect_to }}" />
-                    <select name="language">
-                    {% get_language_info_list for LANGUAGES as languages %}
-                    {% for language in languages %}
-                    <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %} selected="selected"{% endif %}>
-                        {{ language.name_local }} ({{ language.code }})
-                    </option>
-                    {% endfor %}
-                    </select>
-                    <input type="submit" value="Go" />
-                </form>
-
-
-                <div style="color: #ffffff">{{ LANGUAGE_CODE }}</div>
+                <div class="languages">
+                    <form id='lang_en' action="{% url 'set_language' %}" method='POST'>
+                        {% csrf_token %}
+                        <input type='hidden' name='language' value='en'/>
+                        <a href='#' title='{% trans "English" %}' onclick="document.getElementById('lang_en').submit()">
+                            <img width="20" height="20" src="{% static 'img/en.png' %}" />
+                        </a>
+                    </form>
+                    <form id='lang_ru' action="{% url 'set_language' %}" method='POST'>
+                        {% csrf_token %}
+                        <input type='hidden' name='language' value='ru'/>
+                        <a href='#' title='{% trans "Russian" %}' onclick="document.getElementById('lang_ru').submit()">
+                            <img width="20" height="20" src="{% static 'img/ru.png' %}" />
+                        </a>
+                    </form>
+                </div>
 
             </nav>
         </header>
