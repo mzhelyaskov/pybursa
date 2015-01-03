@@ -14,5 +14,6 @@ urlpatterns = patterns('',
     url(r'^results/$', TemplateView.as_view(template_name='result.html'),
         name='result-message'),
     url(r'^contact/$', MailView.as_view(template_name='email/mail_form.html'),
-        name='mail')
+        name='mail'),
+    url(r'^i18n/', include('django.conf.urls.i18n')),
 )

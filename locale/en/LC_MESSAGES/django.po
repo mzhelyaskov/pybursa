@@ -1,0 +1,187 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-01-03 10:47+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: coaches/models.py:9
+msgid "Польз-ь:"
+msgstr "User:"
+
+#: coaches/models.py:11
+msgid "Имя:"
+msgstr "Name:"
+
+#: coaches/models.py:12
+msgid "Фамилия:"
+msgstr "Surname:"
+
+#: coaches/models.py:13
+msgid "Дата рождения:"
+msgstr "Date of birth:"
+
+#: coaches/models.py:15
+msgid "Тел:"
+msgstr "Phone:"
+
+#: coaches/models.py:19
+msgid "Лектор"
+msgstr "Lecturer"
+
+#: coaches/models.py:20
+msgid "Ассистент"
+msgstr "Assistant"
+
+#: coaches/models.py:25
+msgid "Досье:"
+msgstr "Dossier:"
+
+#: pybursa/settings.py:90
+msgid "Russian"
+msgstr "Русский"
+
+#: pybursa/settings.py:91
+msgid "English"
+msgstr "Английский"
+
+#: pybursa/views.py:16 templates/email/mail_form.html:30
+msgid "Тема"
+msgstr "Theme"
+
+#: pybursa/views.py:24
+msgid "Тело письма"
+msgstr "Message body"
+
+#: pybursa/views.py:50
+msgid "Форма отправки почты преподавателю"
+msgstr "Form mail teacher"
+
+#: templates/admin/base.html:30
+msgid "Welcome,"
+msgstr "Добро пожаловать,"
+
+#: templates/admin/base.html:36
+msgid "Documentation"
+msgstr "Документация"
+
+#: templates/admin/base.html:39
+msgid "Change password"
+msgstr "Измненить пароль"
+
+#: templates/admin/base.html:41
+msgid "Log out"
+msgstr "Зарегистрироваться"
+
+#: templates/admin/base.html:50
+msgid "Home"
+msgstr "Домой"
+
+#: templates/admin/base_site.html:3
+msgid "Django site admin"
+msgstr ""
+
+#: templates/admin/index.html:20
+#, python-format
+msgid "Models in the %(name)s application"
+msgstr ""
+
+#: templates/admin/index.html:31
+msgid "Add"
+msgstr "Добавить"
+
+#: templates/admin/index.html:37
+msgid "Change"
+msgstr "Изменить"
+
+#: templates/admin/index.html:47
+msgid "You don't have permission to edit anything."
+msgstr ""
+
+#: templates/admin/index.html:55
+msgid "Recent Actions"
+msgstr ""
+
+#: templates/admin/index.html:56
+msgid "My Actions"
+msgstr ""
+
+#: templates/admin/index.html:60
+msgid "None available"
+msgstr ""
+
+#: templates/admin/index.html:74
+msgid "Unknown content"
+msgstr ""
+
+#: templates/base.html:66
+msgid "Главная"
+msgstr "Main"
+
+#: templates/base.html:71
+msgid "Студенты"
+msgstr "Students"
+
+#: templates/base.html:76
+msgid "Преподаватели"
+msgstr "Coaches"
+
+#: templates/base.html:81
+msgid "Курсы"
+msgstr "Courses"
+
+#: templates/email/mail_form.html:7
+msgid "Отправка почты"
+msgstr "Mail sending"
+
+#: templates/email/mail_form.html:31
+msgid "Отправитель"
+msgstr "Sender"
+
+#: templates/email/mail_form.html:32 templates/email/mail_text.html:3
+msgid "Достопочтенный и многоуважаемый"
+msgstr "Honourable and dear"
+
+#: templates/email/mail_form.html:34 templates/email/mail_text.html:4
+msgid "Спешу уведомить Вас о неподобающем"
+msgstr "I wont to inform you about the"
+
+#: templates/email/mail_form.html:35 templates/email/mail_text.html:5
+msgid "поведении студента"
+msgstr "misconduct of the student"
+
+#: templates/email/mail_form.html:37
+msgid "Посещаемые куры"
+msgstr "Attended courses"
+
+#: templates/email/mail_form.html:37
+msgid "Список курсов в соответствии с выбранным студентом"
+msgstr "List of courses in according with the selected student"
+
+#: templates/email/mail_form.html:40 templates/email/mail_text.html:8
+msgid "Дело в следующем"
+msgstr "The problem in the next"
+
+#: templates/email/mail_form.html:45
+msgid "Отправить"
+msgstr "Send"
+
+#: templates/email/mail_text.html:6
+msgid "песещаемые курсы"
+msgstr "Attended courses"
+
+#: templates/email/mail_text.html:11
+msgid "С уважением, один из Ваших студентов"
+msgstr "Regards one of your students"

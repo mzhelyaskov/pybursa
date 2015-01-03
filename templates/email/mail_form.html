@@ -2,9 +2,9 @@
 
 
 {% load static %}
+{% load i18n %}
 
-
-{% block title %} Отправка почты {% endblock title %}
+{% block title %} {% trans 'Отправка почты' %} {% endblock title %}
 
 
 {% block content %}
@@ -27,21 +27,22 @@
 
                 <div class="box-body">
                     <dl class="dl-horizontal">
-                        <p>Тема письма: {{ form.theme }}</p>
-                        <p>Отправитель: {{ form.email }}</p>
-                        <p>Достопочтенный и многоуважаемый {{ form.coach }} !</p>
+                        <p>{% trans 'Тема' %}: {{ form.theme }}</p>
+                        <p>{% trans 'Отправитель' %}: {{ form.email }}</p>
+                        <p>{% trans 'Достопочтенный и многоуважаемый' %} {{ form.coach }}!</p>
                         <p>
-                            Спешу уведомить Вас о неподобающем поведении студента {{ form.student }} .
+                            {% trans 'Спешу уведомить Вас о неподобающем' %}
+                            {% trans 'поведении студента' %} {{ form.student }}.
                             <br>
-                            (Посещаемые куры: [Список курсов в соответствии с выбранным студентом])
+                            ({% trans 'Посещаемые куры' %}: [{% trans 'Список курсов в соответствии с выбранным студентом' %}])
                         </p>
                         <p>
-                            Дело в следующем:
+                            {% trans 'Дело в следующем' %}:
                             <br>
-                            {{ form.body }}
+                            {{ form.message_body }}
                         </p>
                         <div class="box-footer">
-                            <button type="submit" class="btn btn-primary">Отправить</button>
+                            <button type="submit" class="btn btn-primary">{% trans 'Отправить' %}</button>
                         </div>
                     </dl>
                 </div>
