@@ -11,6 +11,9 @@ from django.utils.translation import ugettext_lazy as _
 from coaches.models import Coach
 from students.models import Student
 
+import logging
+logger = logging.getLogger(__name__)
+
 
 class MailForm(forms.Form):
     theme = forms.CharField(label=_(u'Тема'))
@@ -39,10 +42,15 @@ class MailView(FormView):
                                      {'coach': coach,
                                       'student': student,
                                       'body': message_body})
-
-        send_mail(theme, mail_body, self.request.GET.get('email-from'),
-                  [coach.email], fail_silently=False)
-        messages.success(self.request, _(u'Письмо успешно отправлено'))
+        try:
+            send_mail(theme, mail_body, self.request.GET.get('email-from'),
+                      [coach.email], fail_silently=False)
+            messages.success(self.request, _(u'Письмо успешно отправлено'))
+            logger.info(u'Отправлено письмо с жалобой')
+        except:
+            logger.error(u'Ошибка отправки почты')
+            messages.error(self.request, _(u'Ошибка соединения, '
+                                           u'попробуйте позже'))
         return redirect('mail')
 
     def get_context_data(self, **kwargs):

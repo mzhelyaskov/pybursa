@@ -76,8 +76,7 @@ DATABASES = {
 }
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
+STATIC_ROOT = os.path.join(BASE_DIR, '/')
 TEMPLATE_DIRS = (os.path.join(BASE_DIR, 'templates'), )
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
 LOCALE_PATHS = (os.path.join(BASE_DIR, 'locale'), )
@@ -107,3 +106,40 @@ AUTH_USER_MODEL = 'auth.User'
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+
+EMAIL_HOST = 'localhost'
+
+EMAIL_PORT = 1025
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'customformat': {
+            'format': '[%(asctime)s] [%(name)s] [%(levelname)s] [%(message)s]'
+        },
+    },
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'debug.log'),
+            'formatter': 'customformat',
+        },
+    },
+    'loggers': {
+        'students': {
+            'handlers': ['file'],
+            'level': 'DEBUG'
+        },
+        'courses': {
+            'handlers': ['file'],
+            'level': 'DEBUG'
+        },
+        'coaches': {
+            'handlers': ['file'],
+            'level': 'DEBUG'
+        },
+    },
+
+}

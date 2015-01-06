@@ -4,6 +4,9 @@ from django.shortcuts import get_object_or_404, render, redirect
 from students.models import Student
 from django import forms
 
+import logging
+logger = logging.getLogger(__name__)
+
 
 class StudentForm(forms.Form):
     standard = 'SD'
@@ -86,6 +89,7 @@ def student_edit(request, student_id):
             student.package = form.cleaned_data['package']
             student.save()
             # return redirect('students:student-edit', student_id=student.id)
+            logger.info(u'Редактирвоание реквизитов студента')
             return redirect('result-message')
     else:
         context = {
@@ -104,6 +108,7 @@ def student_delete(request, student_id):
     student = get_object_or_404(Student, id=student_id)
     if request.method == 'POST':
         student.delete()
+        logger.info(u'Удаление студента')
         return redirect('result-message')
     else:
         context = {
@@ -131,6 +136,7 @@ def student_create(request):
                 package=form.cleaned_data['package']
             )
             student.save()
+            logger.info(u'Создан новый студент')
             return redirect('result-message')
     else:
         form = StudentForm()

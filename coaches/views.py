@@ -6,6 +6,10 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 
 from coaches.models import Coach
+import logging
+
+
+logger = logging.getLogger(__name__)
 
 
 class CoachModelForm(forms.ModelForm):
@@ -25,6 +29,10 @@ class CoachCreateView(CreateView):
         context['title'] = u"Создание нового преподавателя"
         return context
 
+    def form_valid(self, form):
+        logger.info(u'Созадан новый преподватель')
+        return super(CoachUpdateView, self).form_valid(form)
+
 
 class CoachUpdateView(UpdateView):
     model = Coach
@@ -36,6 +44,10 @@ class CoachUpdateView(UpdateView):
         context = super(CoachUpdateView, self).get_context_data(**kwargs)
         context['title'] = u"Редактирование реквизитов преподавателя"
         return context
+
+    def form_valid(self, form):
+        logger.info(u'Обновлены данные преподавателя')
+        return super(CoachUpdateView, self).form_valid(form)
 
 
 class CoachDeleteView(DeleteView):
