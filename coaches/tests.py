@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from django.test import TestCase, Client
 from coaches.views import Coach
 from datetime import date
@@ -43,6 +45,8 @@ class CoachTests(TestCase):
 
         response = client.get('/coaches/1')
         self.assertEqual(response.status_code, 200)
+        self.assertContains(response, u'Персональные данные')
+        self.assertContains(response, u'Дополнительная информация')
 
         response = client.get('/coaches/edit/1/')
         self.assertEqual(response.status_code, 200)
@@ -52,3 +56,10 @@ class CoachTests(TestCase):
 
         response = client.get('/coaches/delete/1/')
         self.assertEqual(response.status_code, 200)
+
+    def test_coaches_fields(self):
+        coaches = Coach.objects.all()
+        for coach in coaches:
+            self.assertTrue(coach.name)
+            self.assertTrue(coach.surname)
+            self.assertTrue(coach.phone)

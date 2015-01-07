@@ -69,3 +69,9 @@ class CourseTests(TestCase):
 
         response = client.get('/courses/delete/1/')
         self.assertEqual(response.status_code, 200)
+
+    def test_courses_fields(self):
+        courses = Course.objects.all()
+        for course in courses:
+            self.assertTrue(course.course_name)
+            self.assertTrue(course.description)

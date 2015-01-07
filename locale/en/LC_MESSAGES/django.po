@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-03 13:36+0000\n"
+"POT-Creation-Date: 2015-01-07 21:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,7 +41,7 @@ msgstr "Phone:"
 msgid "Лектор"
 msgstr "Lecturer"
 
-#: coaches/models.py:20
+#: coaches/models.py:20 templates/courses/course_detail.html:37
 msgid "Ассистент"
 msgstr "Assistant"
 
@@ -49,27 +49,31 @@ msgstr "Assistant"
 msgid "Досье:"
 msgstr "Dossier:"
 
-#: pybursa/settings.py:90 templates/base.html:50
+#: pybursa/settings.py:89 templates/base.html:50
 msgid "Russian"
 msgstr "Русский"
 
-#: pybursa/settings.py:91 templates/base.html:43
+#: pybursa/settings.py:90 templates/base.html:43
 msgid "English"
 msgstr "Английский"
 
-#: pybursa/views.py:16 templates/email/mail_form.html:30
+#: pybursa/views.py:19 templates/email/mail_form.html:33
 msgid "Тема"
 msgstr "Theme"
 
-#: pybursa/views.py:24
+#: pybursa/views.py:27
 msgid "Тело письма"
 msgstr "Message body"
 
-#: pybursa/views.py:45
+#: pybursa/views.py:48
 msgid "Письмо успешно отправлено"
 msgstr "Your massage successfully sent"
 
-#: pybursa/views.py:50
+#: pybursa/views.py:52
+msgid "Ошибка соединения, попробуйте позже"
+msgstr "Connection error"
+
+#: pybursa/views.py:58
 msgid "Форма отправки почты преподавателю"
 msgstr "Form mail teacher"
 
@@ -146,39 +150,203 @@ msgstr "Coaches"
 msgid "Курсы"
 msgstr "Courses"
 
-#: templates/email/mail_form.html:7
+#: templates/base.html:96
+msgid "Жалоба"
+msgstr "Complaint"
+
+#: templates/base_confirm_delete.html:13
+msgid "Вы уверены что хотите удалить объект"
+msgstr "Are you sure you want to delete an object?"
+
+#: templates/coaches/coach_addinfo.html:6
+#: templates/students/student_addinfo.html:6
+#, fuzzy
+#| msgid "Досье:"
+msgid "Досье"
+msgstr "Dossier:"
+
+#: templates/coaches/coach_addinfo.html:7
+#: templates/students/student_addinfo.html:8
+msgid "Дополнительная информация"
+msgstr "Additional Information"
+
+#: templates/coaches/coach_addinfo.html:17
+#: templates/students/student_addinfo.html:42
+#, fuzzy
+#| msgid "песещаемые курсы"
+msgid "Нелюбимые курсы"
+msgstr "Attended courses"
+
+#: templates/coaches/coach_addinfo.html:27
+#: templates/courses/course_list.html:15 templates/courses/course_list.html:24
+#: templates/students/student_addinfo.html:16
+#: templates/students/student_addinfo.html:52
+#, fuzzy
+#| msgid "Курсы"
+msgid "Курс"
+msgstr "Courses"
+
+#: templates/coaches/coach_addinfo.html:28
+#: templates/courses/course_detail.html:47
+#: templates/courses/course_list.html:16 templates/courses/course_list.html:25
+#: templates/students/student_addinfo.html:17
+#: templates/students/student_addinfo.html:53
+msgid "Дата начала"
+msgstr "Start date"
+
+#: templates/coaches/coach_addinfo.html:29
+#: templates/courses/course_detail.html:49
+#: templates/courses/course_list.html:17 templates/courses/course_list.html:26
+#: templates/students/student_addinfo.html:18
+#: templates/students/student_addinfo.html:54
+#, fuzzy
+#| msgid "Дата рождения:"
+msgid "Дата окончания"
+msgstr "End date"
+
+#: templates/coaches/coach_addinfo.html:59
+#: templates/students/student_addinfo.html:84
+msgid "Индекс"
+msgstr "Postal Code"
+
+#: templates/coaches/coach_addinfo.html:61
+#: templates/students/student_addinfo.html:86
+msgid "Страна"
+msgstr "Country"
+
+#: templates/coaches/coach_addinfo.html:63
+#: templates/students/student_addinfo.html:88
+msgid "Область"
+msgstr "Region"
+
+#: templates/coaches/coach_addinfo.html:65
+#: templates/students/student_addinfo.html:90
+msgid "Райен"
+msgstr "District"
+
+#: templates/coaches/coach_addinfo.html:67
+#: templates/students/student_addinfo.html:92
+msgid "Улица"
+msgstr "Street"
+
+#: templates/coaches/coach_addinfo.html:69
+#: templates/students/student_addinfo.html:94
+msgid "Дом"
+msgstr "Home"
+
+#: templates/coaches/coach_addinfo.html:79
+#: templates/students/student_addinfo.html:104
+msgid "Любимый цвет"
+msgstr "Favorite color"
+
+#: templates/coaches/coach_addinfo.html:88
+msgid "Не указано"
+msgstr "Not specified"
+
+#: templates/coaches/coach_base.html:8
+msgid "ПРЕПОДАВАТЕЛИ"
+msgstr "TEACHERS"
+
+#: templates/coaches/coach_detail.html:22 templates/coaches/coach_form.html:19
+#: templates/students/student_create.html:33
+msgid "Создать"
+msgstr "Create"
+
+#: templates/coaches/coach_detail.html:32
+#: templates/students/student_item.html:33
+#, fuzzy
+#| msgid "Дата рождения:"
+msgid "Дата рождения"
+msgstr "Date of birth:"
+
+#: templates/coaches/coach_detail.html:34
+#: templates/students/student_item.html:35
+msgid "Мобильный"
+msgstr "Phone"
+
+#: templates/coaches/coach_detail.html:38
+msgid "Роль"
+msgstr "Role"
+
+#: templates/coaches/coach_list.html:9
+#, fuzzy
+#| msgid "Преподаватели"
+msgid "Список преподавателей"
+msgstr "Coaches"
+
+#: templates/coaches/coach_list.html:14 templates/coaches/coach_list.html:23
+#: templates/courses/course_list.html:14 templates/courses/course_list.html:23
+#: templates/students/students_list.html:13
+#: templates/students/students_list.html:22
+msgid "№п/п"
+msgstr "#"
+
+#: templates/coaches/coach_list.html:15 templates/coaches/coach_list.html:24
+#: templates/courses/course_detail.html:27
+#, fuzzy
+#| msgid "Преподаватели"
+msgid "Преподаватель"
+msgstr "Teacher"
+
+#: templates/coaches/coach_list.html:16 templates/coaches/coach_list.html:25
+msgid "Телефон"
+msgstr "Phone"
+
+#: templates/coaches/coach_list.html:17 templates/coaches/coach_list.html:26
+msgid "Позиция"
+msgstr "Position"
+
+#: templates/courses/course_base.html:8
+msgid "КУРСЫ"
+msgstr "COURSES"
+
+#: templates/courses/course_detail.html:23
+msgid "Язык программирования"
+msgstr "Programming Language"
+
+#: templates/courses/course_detail.html:25
+#: templates/courses/course_form.html:19
+#: templates/students/student_edit.html:32
+msgid "Сохранить"
+msgstr "Save"
+
+#: templates/courses/course_list.html:9
+msgid "Список курсов"
+msgstr "List of courses"
+
+#: templates/email/mail_form.html:8
 msgid "Отправка почты"
 msgstr "Mail sending"
 
-#: templates/email/mail_form.html:31
+#: templates/email/mail_form.html:34
 msgid "Отправитель"
 msgstr "Sender"
 
-#: templates/email/mail_form.html:32 templates/email/mail_text.html:3
+#: templates/email/mail_form.html:35 templates/email/mail_text.html:3
 msgid "Достопочтенный и многоуважаемый"
 msgstr "Honourable and dear"
 
-#: templates/email/mail_form.html:34 templates/email/mail_text.html:4
+#: templates/email/mail_form.html:37 templates/email/mail_text.html:4
 msgid "Спешу уведомить Вас о неподобающем"
 msgstr "I wont to inform you about the"
 
-#: templates/email/mail_form.html:35 templates/email/mail_text.html:5
+#: templates/email/mail_form.html:38 templates/email/mail_text.html:5
 msgid "поведении студента"
 msgstr "misconduct of the student"
 
-#: templates/email/mail_form.html:37
+#: templates/email/mail_form.html:40
 msgid "Посещаемые куры"
 msgstr "Attended courses"
 
-#: templates/email/mail_form.html:37
+#: templates/email/mail_form.html:40
 msgid "Список курсов в соответствии с выбранным студентом"
 msgstr "List of courses in according with the selected student"
 
-#: templates/email/mail_form.html:40 templates/email/mail_text.html:8
+#: templates/email/mail_form.html:43 templates/email/mail_text.html:8
 msgid "Дело в следующем"
 msgstr "The problem in the next"
 
-#: templates/email/mail_form.html:45
+#: templates/email/mail_form.html:48
 msgid "Отправить"
 msgstr "Send"
 
@@ -189,3 +357,66 @@ msgstr "Attended courses"
 #: templates/email/mail_text.html:11
 msgid "С уважением, один из Ваших студентов"
 msgstr "Regards one of your students"
+
+#: templates/result.html:7
+msgid "Действие выполнено успешно"
+msgstr "Action successful"
+
+#: templates/students/student_addinfo.html:7
+#, fuzzy
+#| msgid "Посещаемые куры"
+msgid "Посещаемые курсы"
+msgstr "Attended courses"
+
+#: templates/students/student_base.html:8
+msgid "СТУДЕНТЫ"
+msgstr "STUDENTS"
+
+#: templates/students/student_create.html:15
+#, fuzzy
+#| msgid "поведении студента"
+msgid "Создание нового студента"
+msgstr "misconduct of the student"
+
+#: templates/students/student_delete.html:18
+#, fuzzy
+#| msgid "поведении студента"
+msgid "Удалить студента"
+msgstr "misconduct of the student"
+
+#: templates/students/student_delete.html:39
+msgid "Удалить"
+msgstr "Remove"
+
+#: templates/students/student_edit.html:14
+#, fuzzy
+#| msgid "поведении студента"
+msgid "Редактирование реквизитов студента"
+msgstr "misconduct of the student"
+
+#: templates/students/student_item.html:23
+msgid "Персональные данные"
+msgstr "Personal data"
+
+#: templates/students/student_item.html:39
+#: templates/students/students_list.html:16
+#: templates/students/students_list.html:25
+msgid "Пакет"
+msgstr "Package"
+
+#: templates/students/student_item.html:51
+#, fuzzy
+#| msgid "Отправитель"
+msgid "Дополнительно"
+msgstr "Sender"
+
+#: templates/students/students_list.html:8
+#, fuzzy
+#| msgid "поведении студента"
+msgid "Список студентов"
+msgstr "Students list"
+
+#: templates/students/students_list.html:14
+#: templates/students/students_list.html:23
+msgid "ФИО"
+msgstr "Full name"

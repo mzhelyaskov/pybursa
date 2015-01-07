@@ -2,6 +2,7 @@
 
 
 {% load static %}
+{% load i18n %}
 
 
 {% block content %}
@@ -11,7 +12,7 @@
             {% csrf_token %}
             <div class="box box-primary">
                 <div class="box-header">
-                    <h3 class="box-title">Создание нового студента</h3>
+                    <h3 class="box-title">{% trans 'Создание нового студента' %}</h3>
                 </div>
                 <div class="box-body">
                     {% for field in form %}
@@ -29,7 +30,7 @@
                     {% endfor %}
                 </div>
                 <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Создать</button>
+                    <button type="submit" class="btn btn-primary">{% trans 'Создать' %}</button>
                 </div>
             </div>
         </form>

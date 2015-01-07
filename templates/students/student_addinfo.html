@@ -1,8 +1,11 @@
+{% load i18n %}
+
+
 <div class="nav-tabs-custom">
     <ul class="nav nav-tabs pull-right">
-        <li><a href="#tab_2" data-toggle="tab">Досье</a></li>
-        <li class="active"><a href="#tab_1" data-toggle="tab">Посещаемые курсы</a></li>
-        <li class="pull-left header"><i class="fa fa-th"></i> Дополнительная информация:</li>
+        <li><a href="#tab_2" data-toggle="tab">{% trans 'Досье' %}</a></li>
+        <li class="active"><a href="#tab_1" data-toggle="tab">{% trans 'Посещаемые курсы' %}</a></li>
+        <li class="pull-left header"><i class="fa fa-th"></i>{% trans 'Дополнительная информация' %}:</li>
     </ul>
     <div class="tab-content">
         <div class="tab-pane active" id="tab_1">
@@ -10,9 +13,9 @@
                 <tbody>
                     <tr>
                         <th>#</th>
-                        <th>Курс</th>
-                        <th>Дата начала</th>
-                        <th>Дата окончания</th>
+                        <th>{% trans 'Курс' %}</th>
+                        <th>{% trans 'Дата начала' %}</th>
+                        <th>{% trans 'Дата окончания' %}</th>
                     </tr>
                     {% for course in student.courses.all %}
                     <tr>
@@ -36,7 +39,7 @@
                         <div class="box-header">
                             <h4 class="box-title">
                                 <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                    Нелюбимые курсы:
+                                    {% trans 'Нелюбимые курсы' %}:
                                 </a>
                             </h4>
                         </div>
@@ -46,9 +49,9 @@
                                     <tbody>
                                         <tr>
                                             <th>#</th>
-                                            <th>Курс</th>
-                                            <th>Дата начала</th>
-                                            <th>Дата окончания</th>
+                                            <th>{% trans 'Курс' %}</th>
+                                            <th>{% trans 'Дата начала' %}</th>
+                                            <th>{% trans 'Дата окончания' %}</th>
                                         </tr>
                                         {% for unloved_course in student.dossier.unloved_courses.all %}
                                         <tr>
@@ -78,17 +81,17 @@
                         <div style="" id="collapseTwo" class="panel-collapse collapse in">
                             <div class="box-body">
                                 <dl class="dl-horizontal">
-                                    <dt>Индекс:</dt>
+                                    <dt>{% trans 'Индекс' %}:</dt>
                                         <dd>{{ student.dossier.address.index }}</dd>
-                                    <dt>Страна:</dt>
+                                    <dt>{% trans 'Страна' %}:</dt>
                                         <dd>{{ student.dossier.address.country }}</dd>
-                                    <dt>Область:</dt>
+                                    <dt>{% trans 'Область' %}:</dt>
                                         <dd>{{ student.dossier.address.district }}</dd>
-                                    <dt>Райен:</dt>
+                                    <dt>{% trans 'Райен' %}:</dt>
                                         <dd>{{ student.dossier.address.region }}</dd>
-                                    <dt>Улица:</dt>
+                                    <dt>{% trans 'Улица' %}:</dt>
                                         <dd>{{ student.dossier.address.street }}</dd>
-                                    <dt>Дом:</dt>
+                                    <dt>{% trans 'Дом' %}:</dt>
                                         <dd>{{ student.dossier.address.house }}</dd>
                                 </dl>
                             </div>
@@ -98,7 +101,7 @@
                         <div class="box-header">
                             <h4 class="box-title">
                                 <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                                    Любимый цвет:
+                                    {% trans 'Любимый цвет' %}:
                                 </a>
                             </h4>
                         </div>

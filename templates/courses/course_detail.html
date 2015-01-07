@@ -1,6 +1,9 @@
 {% extends "courses/course_base.html" %}
 
 
+{% load i18n %}
+
+
 {% block content %}
 <div class="row">
     <div class="col-md-9">
@@ -17,11 +20,11 @@
             <div class="box box-solid">
                 <div class="box-body">
                     <dl class="dl-horizontal">
-                        <dt>Язык программирования:</dt>
+                        <dt>{% trans 'Язык программирования' %}:</dt>
                             <dd>{{ course.get_programming_len_display }}</dd>
-                        <dt>Описание:</dt>
+                        <dt>{% trans 'Сохранить' %}Описание:</dt>
                             <dd>{{ course.description }}</dd>
-                        <dt>Преподаватель:</dt>
+                        <dt>{% trans 'Преподаватель' %}:</dt>
                             {% if course.teacher.id %}
                             <dd>
                                 <a href="{% url 'coaches:coach-detail' course.teacher.id %}">
@@ -31,7 +34,7 @@
                             {% else %}
                             <dd> --- </dd>
                             {% endif %}
-                        <dt>Ассистент:</dt>
+                        <dt>{% trans 'Ассистент' %}:</dt>
                             {% if course.assistant.id %}
                             <dd>
                                 <a href="{% url 'coaches:coach-detail' course.assistant.id %}">
@@ -41,9 +44,9 @@
                             {% else %}
                             <dd> --- </dd>
                             {% endif %}
-                        <dt>Дата начала:</dt>
+                        <dt>{% trans 'Дата начала' %}:</dt>
                             <dd>{{ course.start_date }}</dd>
-                        <dt>Дата окончания:</dt>
+                        <dt>{% trans 'Дата окончания' %}:</dt>
                             <dd>{{ course.end_date }}</dd>
                     </dl>
                 </div>

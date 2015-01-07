@@ -2,6 +2,7 @@
 
 
 {% load static %}
+{% load i18n %}
 
 
 {% block content %}
@@ -14,7 +15,7 @@
                     <div class="form-group has-warning">
                         <h3 class="box-title">
                             <label class="control-label"><i class="fa fa-warning"></i>
-                                Удалить студента?
+                                {% trans 'Удалить студента' %}?
                             </label>
                         </h3>
                     </div>
@@ -35,7 +36,7 @@
                     {% endfor %}
                 </div>
                 <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">Удалить</button>
+                    <button type="submit" class="btn btn-primary">{% trans 'Удалить' %}</button>
                 </div>
             </div>
         </form>

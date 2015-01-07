@@ -2,7 +2,7 @@
 
 
 {% load static %}
-
+{% load i18n %}
 
 {% block content %}
 <h1>
@@ -20,23 +20,23 @@
         <div class="box box-info">
             <div class="box-header">
                 <i class="fa fa-thumb-tack"></i>
-                <h3 class="box-title">Персональные данные:</h3>
+                <h3 class="box-title">{% trans 'Персональные данные' %}:</h3>
                 <div class="pull-right">
-                    <a href="{% url 'students:student-create' %}"><i class="fa fa-plus-square fa-half-size"></i></a>
-                    <a href="{% url 'students:student-edit' student.id %}"><i class="fa fa-pencil-square fa-half-size"></i></a>
-                    <a href="{% url 'students:student-delete' student.id %}"><i class="fa fa-minus-square fa-half-size"></i></a>
+                    <a id="add" href="{% url 'students:student-create' %}"><i class="fa fa-plus-square fa-half-size"></i></a>
+                    <a id="edit" href="{% url 'students:student-edit' student.id %}"><i class="fa fa-pencil-square fa-half-size"></i></a>
+                    <a id="delete" href="{% url 'students:student-delete' student.id %}"><i class="fa fa-minus-square fa-half-size"></i></a>
                 </div>
             </div>
             <div class="box box-solid">
                 <div class="box-body">
                     <dl class="dl-horizontal">
-                        <dt>Дата рождения:</dt>
+                        <dt>{% trans 'Дата рождения' %}:</dt>
                             <dd>{{ student.birth_date }}</dd>
-                        <dt>Мобильный:</dt>
+                        <dt>{% trans 'Мобильный' %}:</dt>
                             <dd>{{ student.phone }}</dd>
                         <dt>Email:</dt>
                             <dd>{{ student.email }}</dd>
-                        <dt>Пакет:</dt>
+                        <dt>{% trans 'Пакет' %}:</dt>
                             <dd>{{ student.get_package_display }}</dd>
                     </dl>
                 </div>
@@ -48,7 +48,7 @@
         <div class="box box-info">
             <div class="box-header">
                 <i class="fa fa-thumb-tack"></i>
-                <h3 class="box-title">Вы также можете:</h3>
+                <h3 class="box-title">{% trans 'Дополнительно' %}:</h3>
             </div>
             <div class="box box-solid">
                 <div class="box-body">

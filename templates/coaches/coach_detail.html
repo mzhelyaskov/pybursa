@@ -2,6 +2,7 @@
 
 
 {% load static %}
+{% load i18n %}
 
 
 {% block content %}
@@ -18,7 +19,7 @@
         <div class="box box-info">
             <div class="box-header">
                 <i class="fa fa-thumb-tack"></i>
-                <h3 class="box-title">Персональные данные:</h3>
+                <h3 class="box-title">{% trans 'Создать' %}Персональные данные:</h3>
                 <div class="pull-right">
                     <a href="{% url 'coaches:coach-create' %}"><i class="fa fa-plus-square fa-half-size"></i></a>
                     <a href="{% url 'coaches:coach-edit' coach.id %}"><i class="fa fa-pencil-square fa-half-size"></i></a>
@@ -28,13 +29,13 @@
             <div class="box box-solid">
                 <div class="box-body">
                     <dl class="dl-horizontal">
-                        <dt>Дата рождения:</dt>
+                        <dt>{% trans 'Дата рождения' %}:</dt>
                             <dd>{{ coach.birth_date }}</dd>
-                        <dt>Мобильный:</dt>
+                        <dt>{% trans 'Мобильный' %}:</dt>
                             <dd>{{ coach.phone }}</dd>
                         <dt>Email:</dt>
                             <dd>{{ coach.email }}</dd>
-                        <dt>Роль:</dt>
+                        <dt>{% trans 'Роль' %}:</dt>
                             <dd>{{ coach.get_role_display }}</dd>
                     </dl>
                 </div>

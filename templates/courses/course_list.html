@@ -1,28 +1,29 @@
 {% extends "courses/course_base.html" %}
 
 
-{% load static %}
+{% load static
+{% load i18n %}
 
 
 {% block table_title %}
-    Список курсов
+    {% trans 'Список курсов' %}
 {% endblock table_title %}
 
 
 {% block head_column_titles %}
-    <th aria-label="Rendering engine: activate to sort column descending" aria-sort="ascending" style="width: 3%" colspan="1" rowspan="1" aria-controls="example1" tabindex="0" role="columnheader" class="sorting_asc">№п/п</th>
-    <th aria-label="Browser: activate to sort column ascending" style="width: 265px;" colspan="1" rowspan="1" aria-controls="example1" tabindex="0" role="columnheader" class="sorting">Курс</th>
-    <th aria-label="Platform(s): activate to sort column ascending" style="width: 229px;" colspan="1" rowspan="1" aria-controls="example1" tabindex="0" role="columnheader" class="sorting">Дата начала</th>
-    <th aria-label="Engine version: activate to sort column ascending" style="width: 152px;" colspan="1" rowspan="1" aria-controls="example1" tabindex="0" role="columnheader" class="sorting">Дата окончания</th>
+    <th aria-label="Rendering engine: activate to sort column descending" aria-sort="ascending" style="width: 3%" colspan="1" rowspan="1" aria-controls="example1" tabindex="0" role="columnheader" class="sorting_asc">{% trans '№п/п' %}</th>
+    <th aria-label="Browser: activate to sort column ascending" style="width: 265px;" colspan="1" rowspan="1" aria-controls="example1" tabindex="0" role="columnheader" class="sorting">{% trans 'Курс' %}</th>
+    <th aria-label="Platform(s): activate to sort column ascending" style="width: 229px;" colspan="1" rowspan="1" aria-controls="example1" tabindex="0" role="columnheader" class="sorting">{% trans 'Дата начала' %}</th>
+    <th aria-label="Engine version: activate to sort column ascending" style="width: 152px;" colspan="1" rowspan="1" aria-controls="example1" tabindex="0" role="columnheader" class="sorting">{% trans 'Дата окончания' %}</th>
     <th aria-label="CSS grade: activate to sort column ascending" style="width: 53px;" colspan="1" rowspan="1" aria-controls="example1" tabindex="0" role="columnheader" class="sorting"></th></tr>
 {% endblock head_column_titles %}
 
 
 {% block foot_column_titles %}
-    <th colspan="1" rowspan="1">№п/п</th>
-    <th colspan="1" rowspan="1">курс</th>
-    <th colspan="1" rowspan="1">Дата начала</th>
-    <th colspan="1" rowspan="1">Дата окончания</th>
+    <th colspan="1" rowspan="1">{% trans '№п/п' %}</th>
+    <th colspan="1" rowspan="1">{% trans 'Курс' %}</th>
+    <th colspan="1" rowspan="1">{% trans 'Дата начала' %}</th>
+    <th colspan="1" rowspan="1">{% trans 'Дата окончания' %}</th>
     <th colspan="1" rowspan="1"></th>
 {% endblock foot_column_titles %}
 
