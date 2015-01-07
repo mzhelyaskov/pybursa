@@ -87,7 +87,7 @@ class StudentsSeleniumTests(LiveServerTestCase):
     def test_courses(self):
         self.selenium.get('%s%s' % (self.live_server_url, '/students/'))
         import time
-        time.sleep(3)
+        time.sleep(1)
 
         student_1 = Student.objects.create(
             name='name',
@@ -98,10 +98,10 @@ class StudentsSeleniumTests(LiveServerTestCase):
         )
 
         self.selenium.get('%s%s' % (self.live_server_url, '/students/1'))
-        time.sleep(3)
+        time.sleep(1)
 
         self.selenium.find_element_by_xpath('//a[@id="add"]').click()
-        time.sleep(3)
+        time.sleep(1)
 
         name_input = self.selenium.find_element_by_id('id_name')
         name_input.send_keys('name')
@@ -113,4 +113,23 @@ class StudentsSeleniumTests(LiveServerTestCase):
         email_input.send_keys('test@test.com')
         phone_input = self.selenium.find_element_by_id('id_phone')
         phone_input.send_keys('1234567890')
-        # name_div = self.selenium.find_element_by_class_name('iradio_minimal')
+        package_input = self.selenium.find_element_by_id('id_package_0')
+        package_input.click()
+        time.sleep(1)
+
+        self.selenium.find_element_by_xpath('//button[@type="submit"]').submit()
+        time.sleep(10)
+
+        self.selenium.get('%s%s' % (self.live_server_url, '/students/edit/1/'))
+        time.sleep(3)
+
+        name_input = self.selenium.find_element_by_id('id_name')
+        name_input.send_keys('_edit')
+        surname_input = self.selenium.find_element_by_id('id_surname')
+        surname_input.send_keys('_edit')
+        package_input = self.selenium.find_element_by_id('id_package_0')
+        package_input.click()
+        time.sleep(10)
+
+        self.selenium.find_element_by_xpath('//button[@type="submit"]').submit()
+        time.sleep(20)

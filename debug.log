@@ -30,3 +30,7 @@
 [2015-01-07 12:01:48,456] [students.views] [INFO] [Удален студент fs dfs.]
 [2015-01-07 12:03:59,785] [students.views] [INFO] [Создан студент ddd ff.]
 [2015-01-07 12:04:04,061] [students.views] [INFO] [Удален студент ddd ff.]
+[2015-01-07 22:35:32,273] [students.views] [INFO] [Создан студент name surname.]
+[2015-01-07 22:45:13,504] [students.views] [INFO] [Создан студент name surname.]
+[2015-01-07 22:46:57,821] [students.views] [INFO] [Создан студент name surname.]
+[2015-01-07 22:47:32,355] [students.views] [INFO] [Изменен студент nameedit_name surnameedit_surname.]
