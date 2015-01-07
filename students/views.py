@@ -5,6 +5,7 @@ from students.models import Student
 from django import forms
 
 import logging
+
 logger = logging.getLogger(__name__)
 
 
@@ -88,9 +89,10 @@ def student_edit(request, student_id):
             student.phone = form.cleaned_data['phone']
             student.package = form.cleaned_data['package']
             student.save()
-            # return redirect('students:student-edit', student_id=student.id)
-            logger.info(u'Редактирвоание реквизитов студента')
-            return redirect('result-message')
+            logger.info(
+                u'Изменен студент %s %s.' % (student.name, student.surname)
+            )
+            return redirect('students:student-detail', student.id)
     else:
         context = {
             'name': student.name,
@@ -108,8 +110,8 @@ def student_delete(request, student_id):
     student = get_object_or_404(Student, id=student_id)
     if request.method == 'POST':
         student.delete()
-        logger.info(u'Удаление студента')
-        return redirect('result-message')
+        logger.info(u'Удален студент %s %s.' % (student.name, student.surname))
+        return redirect('students:index')
     else:
         context = {
             'name': student.name,
@@ -136,8 +138,10 @@ def student_create(request):
                 package=form.cleaned_data['package']
             )
             student.save()
-            logger.info(u'Создан новый студент')
-            return redirect('result-message')
+            logger.info(
+                u'Создан студент %s %s.' % (student.name, student.surname)
+            )
+            return redirect('students:index')
     else:
         form = StudentForm()
     return render(request, 'students/student_create.html', {'form': form})

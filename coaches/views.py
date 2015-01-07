@@ -30,8 +30,9 @@ class CoachCreateView(CreateView):
         return context
 
     def form_valid(self, form):
-        logger.info(u'Созадан новый преподватель')
-        return super(CoachUpdateView, self).form_valid(form)
+        obj = form.save()
+        logger.info(u'Созадан преподватель %s %s.' % (obj.name, obj.surname))
+        return super(CoachCreateView, self).form_valid(form)
 
 
 class CoachUpdateView(UpdateView):
@@ -46,7 +47,8 @@ class CoachUpdateView(UpdateView):
         return context
 
     def form_valid(self, form):
-        logger.info(u'Обновлены данные преподавателя')
+        obj = form.save()
+        logger.info(u'Преподаватель %s %s: обновлен.' % (obj.name,obj.surname))
         return super(CoachUpdateView, self).form_valid(form)
 
 

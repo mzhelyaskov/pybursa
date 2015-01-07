@@ -4,51 +4,54 @@
 {% load static %}
 {% load i18n %}
 
+
 {% block title %} {% trans 'Отправка почты' %} {% endblock title %}
 
 
+{% block complaint-active %} class="active" {% endblock complaint-active %}
+
+
 {% block content %}
+    {% if messages %}
+        {% for message in messages %}
+            {# <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li> #}
+            <div class="alert alert-success" role="alert">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
 
-{% if messages %}
-{% for message in messages %}
-    {# <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li> #}
-    <div class="alert alert-success" role="alert">{{ message }}</div>
-{% endfor %}
-{% endif %}
+    <div class="row placeholders">
+        <div class="col-xs-12 col-sm-12 placeholder ">
+            <form method="post">
+                {% csrf_token %}
+                <div class="box box-primary">
+                    <div class="box-header">
+                        <h3 class="box-title">{{ title }}</h3>
+                    </div>
 
-<div class="row placeholders">
-    <div class="col-xs-12 col-sm-12 placeholder ">
-        <form method="post">
-            {% csrf_token %}
-            <div class="box box-primary">
-                <div class="box-header">
-                    <h3 class="box-title">{{ title }}</h3>
+                    <div class="box-body">
+                        <dl class="dl-horizontal">
+                            <p>{% trans 'Тема' %}: {{ form.theme }}</p>
+                            <p>{% trans 'Отправитель' %}: {{ form.email }}</p>
+                            <p>{% trans 'Достопочтенный и многоуважаемый' %} {{ form.coach }}!</p>
+                            <p>
+                                {% trans 'Спешу уведомить Вас о неподобающем' %}
+                                {% trans 'поведении студента' %} {{ form.student }}.
+                                <br>
+                                ({% trans 'Посещаемые куры' %}: [{% trans 'Список курсов в соответствии с выбранным студентом' %}])
+                            </p>
+                            <p>
+                                {% trans 'Дело в следующем' %}:
+                                <br>
+                                {{ form.message_body }}
+                            </p>
+                            <div class="box-footer">
+                                <button type="submit" class="btn btn-primary">{% trans 'Отправить' %}</button>
+                            </div>
+                        </dl>
+                    </div>
                 </div>
 
-                <div class="box-body">
-                    <dl class="dl-horizontal">
-                        <p>{% trans 'Тема' %}: {{ form.theme }}</p>
-                        <p>{% trans 'Отправитель' %}: {{ form.email }}</p>
-                        <p>{% trans 'Достопочтенный и многоуважаемый' %} {{ form.coach }}!</p>
-                        <p>
-                            {% trans 'Спешу уведомить Вас о неподобающем' %}
-                            {% trans 'поведении студента' %} {{ form.student }}.
-                            <br>
-                            ({% trans 'Посещаемые куры' %}: [{% trans 'Список курсов в соответствии с выбранным студентом' %}])
-                        </p>
-                        <p>
-                            {% trans 'Дело в следующем' %}:
-                            <br>
-                            {{ form.message_body }}
-                        </p>
-                        <div class="box-footer">
-                            <button type="submit" class="btn btn-primary">{% trans 'Отправить' %}</button>
-                        </div>
-                    </dl>
-                </div>
-            </div>
-
-        </form>
+            </form>
+        </div>
     </div>
-</div>
 {% endblock content %}

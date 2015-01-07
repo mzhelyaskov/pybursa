@@ -75,22 +75,27 @@
                             <a href="/">
                                 <i class="fa fa-home"></i><span>{% trans 'Главная' %}</span>
                             </a>
-                        </li>
-                        <li {% block students-active %} {#class="active"#} {% endblock students-active %}>
+                         </li>
+                         <li {% block students-active %} {#class="active"#} {% endblock students-active %}>
                             <a href="{% url 'students:index' %}">
                                 <i class="fa fa-graduation-cap"></i><span>{% trans 'Студенты' %}</span>
                             </a>
-                        </li>
-                        <li {% block coache-active %} {#class="active"#} {% endblock coache-active %}>
+                         </li>
+                         <li {% block coache-active %} {#class="active"#} {% endblock coache-active %}>
                             <a href="{% url 'coaches:index' %}">
                                 <i class="fa fa-user"></i><span>{% trans 'Преподаватели' %}</span>
                             </a>
-                        </li>
+                         </li>
                          <li {% block course-active %} {#class="active"#} {% endblock course-active %}>
                             <a href="{% url 'courses:index' %}">
                                 <i class="fa fa-book"></i><span>{% trans 'Курсы' %}</span>
                             </a>
-                        </li>
+                         </li>
+                         <li {% block complaint-active %} {#class="active"#} {% endblock complaint-active %}>
+                            <a href="{% url 'mail' %}">
+                                <i class="fa fa-book"></i><span>{% trans 'Жалоба' %}</span>
+                            </a>
+                         </li>
                     </ul>
                 </section>
             </aside>
@@ -110,22 +115,22 @@
                                     <div class="row">
                                         <div class="col-xs-4">
                                             <div class="dataTables_length" id="example1_length">
-                                                <label>
-                                                    <select aria-controls="example1" size="1" name="example1_length">
-                                                        <option selected="selected" value="5">5</option>
-                                                        <option value="15">15</option>
-                                                        <option value="30">30</option>
-                                                        <option value="50">50</option>
-                                                    </select>
-                                                    записей на листе
-                                                </label>
+                                                <!--<label>-->
+                                                    <!--<select aria-controls="example1" size="1" name="example1_length">-->
+                                                        <!--<option selected="selected" value="5">5</option>-->
+                                                        <!--<option value="15">15</option>-->
+                                                        <!--<option value="30">30</option>-->
+                                                        <!--<option value="50">50</option>-->
+                                                    <!--</select>-->
+                                                    <!--записей на листе-->
+                                                <!--</label>-->
                                             </div>
                                         </div>
                                         <div class="col-xs-8">
                                             <div id="example1_filter" class="dataTables_filter">
-                                                <label class="tablefeatures">
-                                                    Поиск: <input aria-controls="example1" type="text" style="width: 300px">
-                                                </label>
+                                                <!--<label class="tablefeatures">-->
+                                                    <!--Поиск: <input aria-controls="example1" type="text" style="width: 300px">-->
+                                                <!--</label>-->
                                             </div>
                                         </div>
                                     </div>
@@ -155,17 +160,17 @@
                                             </div>
                                         </div>
                                         <div class="col-xs-5">
-                                            <div class="dataTables_paginate paging_bootstrap">
-                                                <ul class="pagination tablefeatures">
-                                                    <li class="prev disabled"><a href="#">← Previous</a></li>
-                                                    <li class="active"><a href="#">1</a></li>
-                                                    <li><a href="#">2</a></li>
-                                                    <li><a href="#">3</a></li>
-                                                    <li><a href="#">4</a></li>
-                                                    <li><a href="#">5</a></li>
-                                                    <li class="next"><a href="#">Next → </a></li>
-                                                </ul>
-                                            </div>
+                                            <!--<div class="dataTables_paginate paging_bootstrap">-->
+                                                <!--<ul class="pagination tablefeatures">-->
+                                                    <!--<li class="prev disabled"><a href="#">← Previous</a></li>-->
+                                                    <!--<li class="active"><a href="#">1</a></li>-->
+                                                    <!--<li><a href="#">2</a></li>-->
+                                                    <!--<li><a href="#">3</a></li>-->
+                                                    <!--<li><a href="#">4</a></li>-->
+                                                    <!--<li><a href="#">5</a></li>-->
+                                                    <!--<li class="next"><a href="#">Next → </a></li>-->
+                                                <!--</ul>-->
+                                            <!--</div>-->
                                         </div>
                                     </div>
                                 </div>
